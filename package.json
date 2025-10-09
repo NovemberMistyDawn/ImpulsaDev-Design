@@ -1,0 +1,17 @@
+{
+  "name": "impulsadev-backend",
+  "version": "1.0.0",
+  "description": "Backend con Express + SQLite",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "initdb": "node init-db.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.6",
+    "sqlite": "^5.1.1"
+  }
+}

@@ -1,0 +1,147 @@
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buscador de Puestos</title>
+  <link rel="stylesheet" href="../../public/styles/styles.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+  
+</head>
+<body>
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <img src="../../public/img/logo.png" alt="Logo" class="logo" />
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Itinerarios</a></li>
+          <li><a href="#">Soft Skills</a></li>
+          <li><a href="#">Conocimientos</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </nav>
+  
+      <div class="hero-main">
+        <!-- Texto de bienvenida -->
+        <div class="hero-text">
+          <h1>Bienvenido/a a <span>ImpulsaDev</span></h1>
+          <p>
+            Con ImpulsaDEV, accederás a información esencial sobre puestos de trabajo,
+            itinerarios formativos y tecnologías que te ayudarán a integrarte en el dinámico
+            mundo laboral del sector TIC.
+          </p>
+          <a href="#" class="btn-primary">¡Comenzar!</a>
+        </div>
+  
+        <!-- Bloque Chat IA + chica -->
+        <div class="hero-side">
+         <div class="chat-box" id="chatBox">
+            <button class="chat-close" id="closeChatBtn">×</button>
+            <h3>chat-IA (aquí iría el nombre)</h3>
+            <p>
+              Con "nombre-de-IA", podrás recibir asesoramiento personalizado en base a tu
+              situación particular.
+            </p>
+            <button class="btn-chat">Chat</button>
+          </div>
+          <img src="../../public/img/girl_computer.png" alt="Persona con portátil" class="girl-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+   <section class="search-section">
+    <div class="search-container">
+      <div class="search-bar">
+        <input type="text" placeholder="Nombre del puesto de trabajo..." />
+        <button class="btn-filters">
+          <span>Filtros</span>
+          <span class="filter-count">4</span>
+        </button>
+      </div>
+    </div>
+  </section>
+ <!-- Buscador -->
+
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <div class="layout">
+      <!-- Filtros -->
+      <aside class="filters">
+        <div class="filter-group">
+          <h2>Categoría</h2>
+          <div class="filter-options">
+            <div class="filter-option active">Desarrollador</div>
+            <div class="filter-option">Tester</div>
+            <div class="filter-option">Analista de datos</div>
+            <div class="filter-option">Ciberseguridad</div>
+            <div class="filter-option">Soporte IT</div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h2>Rango salarial</h2>
+          <div class="salary-range">
+            <input type="range" min="15000" max="80000" value="30000" id="salaryRange">
+            <div class="salary-value">€30,000</div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h2>Nivel de demanda</h2>
+          <div class="filter-options">
+            <div class="filter-option">Muy alto</div>
+            <div class="filter-option">Alto</div>
+            <div class="filter-option">Medio</div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h2>Tiempo estimado de aprendizaje</h2>
+          <div class="filter-options">
+            <div class="filter-option">Menos de 6 meses</div>
+            <div class="filter-option">6 meses - 1 año</div>
+            <div class="filter-option">1 - 2 años</div>
+            <div class="filter-option">Más de 2 años</div>
+          </div>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="btn-reset">Reestablecer</button>
+          <button class="btn-apply">Aplicar filtros</button>
+        </div>
+      </aside>
+
+      <!-- Resultados -->
+      <main>
+        <div class="results-container">
+          <div class="job-card">
+            <h2>Desarrollador Frontend React</h2>
+            <p>Buscamos un desarrollador frontend con experiencia en React, JavaScript y CSS. Oportunidad de crecimiento en equipo dinámico.</p>
+            <a href="#" class="btn">Ver detalles</a>
+          </div>
+
+           <div class="job-card">
+            <h2>Desarrollador Frontend React</h2>
+            <p>Buscamos un desarrollador frontend con experiencia en React, JavaScript y CSS. Oportunidad de crecimiento en equipo dinámico.</p>
+            <a href="#" class="btn">Ver detalles</a>
+          </div>
+
+           <div class="job-card">
+            <h2>Desarrollador Frontend React</h2>
+            <p>Buscamos un desarrollador frontend con experiencia en React, JavaScript y CSS. Oportunidad de crecimiento en equipo dinámico.</p>
+            <a href="#" class="btn">Ver detalles</a>
+          </div>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../../public/js/main.js" defer></script>
+  </body>
+</html>

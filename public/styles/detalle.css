@@ -1,0 +1,205 @@
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+/* ====== NAVBAR ====== */
+
+
+/* ====== CONTENEDOR PRINCIPAL ====== */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;/* NAVBAR */
+}
+.site-header{
+  position: sticky; top: 0; z-index: 1000;
+  background: linear-gradient(90deg, #F18657, #223E92);
+  color:#fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.topbar{
+  max-width: 1100px; margin: 0 auto;
+  padding: .75rem 1rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+}
+.brand img{ height:40px; display:block; }
+
+.main-nav ul{
+  list-style:none; margin:0; padding:0;
+  display:flex; gap:2rem; align-items:center;
+}
+.main-nav a{
+  color:#fff; text-decoration:none; font-weight:600;
+  padding:.35rem .6rem; border-radius:10px;
+}
+.main-nav a:hover, .main-nav a:focus{ background: rgba(255,255,255,.15); }
+.main-nav a.active{ background: rgba(255,255,255,.2); }
+
+/* Botón hamburguesa */
+.nav-toggle{
+  display:none;
+  background:transparent; color:#fff; border:2px solid rgba(255,255,255,.6);
+  border-radius:10px; padding:.35rem .6rem; font-size:1.1rem; cursor:pointer;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+  .main-nav{
+    position:absolute; left:0; right:0; top:100%;
+    background: linear-gradient(90deg, #F18657, #223E92);
+    display:none; border-bottom:1px solid rgba(255,255,255,.2);
+  }
+  .main-nav.open{ display:block; }
+  .main-nav ul{ flex-direction:column; gap:0; }
+  .main-nav li{ border-top:1px solid rgba(255,255,255,.15); }
+  .main-nav a{ display:block; padding:.9rem 1rem; border-radius:0; }
+}
+
+
+/* ====== TÍTULOS Y DESCRIPCIÓN ====== */
+h1 {
+  font-size: 2.5rem;
+  color: #2A327B;
+  margin-bottom: 1rem;
+  margin-top:2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #223E92;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.detalle-container{
+  padding: 2rem 4rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+
+ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ====== RANGO SALARIAL ====== */
+.salary {
+  font-weight: bold;
+  color: #223E92;
+  margin: 1rem 0;
+}
+
+/* ====== BLOQUES DE INFO ====== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  border: 2px solid #BACDEC;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #2A327B;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  background: #f9f9f9;
+  border: 1px solid #BACDEC;
+  margin-bottom: .5rem;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #223E92;
+  font-weight: 500;
+}
+
+.card ul li:hover {
+  background: #BACDEC;
+  color: #fff;
+}
+
+.card ul li::after {
+  content: none;
+  color: #223E92;
+  font-weight: bold;
+}
+
+
+#softskills-list li {
+  display: flex;
+  flex-direction: column; /*  elementos en columna */
+  align-items: flex-start; /* alineados a la izquierda */
+}
+
+.skill-toggle {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.3rem;
+  width: 100%;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.skill-toggle:hover {
+  color: orange;
+}
+
+.skill-desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  padding-left: 1rem;
+}
+
+.skill-desc.active {
+  max-height: 300px; /* suficiente para mostrar texto */
+  opacity: 1;
+}
+
