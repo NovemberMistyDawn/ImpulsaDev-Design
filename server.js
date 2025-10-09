@@ -22,12 +22,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// 🔹 Conexión a SQLite
+// Abrir DB
 let db;
 (async () => {
   db = await open({
-    filename: "./database.sqlite",
-    driver: sqlite3.Database
+    filename: path.join(__dirname, "database.sqlite"), // ✅ ruta absoluta
+    driver: sqlite3.Database,
   });
 })();
 
