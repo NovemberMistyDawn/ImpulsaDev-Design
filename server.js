@@ -34,7 +34,7 @@ let db;
 // 🔹 Endpoint: obtener todos los puestos
 app.get("/api/puestos", async (req, res) => {
   try {
-    const puestos = await db.all("SELECT nombre, descripcion FROM puestos");
+    const puestos = await db.all("SELECT id, nombre, descripcion FROM puestos");
     res.json(puestos);
   } catch (err) {
     console.error(err);
