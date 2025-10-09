@@ -10,6 +10,18 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public")); // sirve tu frontend
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Para tener __dirname en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Servir index.html en la raíz
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // 🔹 Conexión a SQLite
 let db;
 (async () => {
