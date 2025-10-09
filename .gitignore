@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Archivos de base de datos
+database.sqlite
+
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
