@@ -1,64 +1,47 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('./database');
+import express from "express";
+import cors from "cors";
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.json());
+app.use(express.static("public")); // sirve tu frontend
 
-const port = 3000;
+// 🔹 Conexión a SQLite
+let db;
+(async () => {
+  db = await open({
+    filename: "./database.sqlite",
+    driver: sqlite3.Database
+  });
+})();
 
-// Endpoint para listar puestos
-app.get('/api/puestos', (req, res) => {
+// 🔹 Endpoint: obtener todos los puestos
+app.get("/api/puestos", async (req, res) => {
   try {
-    const rows = db.prepare('SELECT id, nombre, descripcion FROM puesto').all();
-    res.json(rows);
+    const puestos = await db.all("SELECT nombre, descripcion FROM puestos");
+    res.json(puestos);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: "Error al obtener puestos" });
   }
 });
 
-// Detalle de un puesto
-app.get('/api/puesto/:id', (req, res) => {
-  const id = req.params.id;
+// 🔹 Endpoint: detalle de puesto
+app.get("/api/puesto/:id", async (req, res) => {
   try {
-    const puesto = db.prepare(`
-      SELECT 
-        p.id AS puesto_id,
-        p.nombre AS puesto_nombre,
-        p.descripcion AS puesto_descripcion,
-        GROUP_CONCAT(DISTINCT c.nombre) AS conocimientos,
-        GROUP_CONCAT(DISTINCT q.nombre) AS cualidades,
-        GROUP_CONCAT(DISTINCT i.nombre) AS itinerarios
-      FROM puesto p
-      LEFT JOIN puesto_conocimiento pc ON p.id = pc.id_puesto
-      LEFT JOIN conocimiento c ON pc.id_conocimiento = c.id
-      LEFT JOIN puesto_cualidad pq ON p.id = pq.id_puesto
-      LEFT JOIN cualidad q ON pq.id_cualidad = q.id
-      LEFT JOIN puesto_itinerario pi ON p.id = pi.id_puesto
-      LEFT JOIN itinerario_formativo i ON pi.id_itinerario = i.id
-      WHERE p.id = ?
-      GROUP BY p.id
-    `).get(id);
-
-    if (!puesto) {
-      return res.status(404).json({ message: 'Puesto no encontrado' });
-    }
-
-    puesto.conocimientos = puesto.conocimientos ? puesto.conocimientos.split(',') : [];
-    puesto.cualidades = puesto.cualidades ? puesto.cualidades.split(',') : [];
-    puesto.itinerarios = puesto.itinerarios ? puesto.itinerarios.split(',') : [];
-
+    const puesto = await db.get("SELECT * FROM puestos WHERE id = ?", [req.params.id]);
+    if (!puesto) return res.status(404).json({ error: "No encontrado" });
     res.json(puesto);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ error: "Error interno" });
   }
 });
 
-// (Y así igual para /api/cualidad/:nombre, /api/conocimiento/:nombre, /api/itinerario/:nombre)
-// Puedes mantener exactamente la misma lógica de tus queries MySQL,
-// solo adaptando a db.prepare().get() o db.prepare().all() según el caso.
-
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+// 🔹 Iniciar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
