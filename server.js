@@ -1,22 +1,40 @@
+import express from "express";
+import cors from "cors";
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
 import path from "path";
 import { fileURLToPath } from "url";
-import { open } from "sqlite";
-import sqlite3 from "sqlite3";
 
+// 🔹 Para tener __dirname en ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// 🔹 Crear app y puerto
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// 🔹 Middlewares
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public"))); // servir frontend
+
+// 🔹 Servir index.html en la raíz
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// 🔹 Inicialización de SQLite
 let db;
 (async () => {
   try {
     console.log("🔹 Abriendo base de datos...");
     db = await open({
-      filename: path.join(__dirname, "database.sqlite"), // ruta absoluta segura
+      filename: "./database.sqlite",
       driver: sqlite3.Database,
     });
     console.log("✅ Base de datos abierta.");
 
-    // Crea la tabla si no existe
+    // Crear tabla puestos si no existe
     await db.exec(`
       CREATE TABLE IF NOT EXISTS puestos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,13 +58,12 @@ let db;
 
     const tablas = await db.all("SELECT name FROM sqlite_master WHERE type='table'");
     console.log("📋 Tablas existentes:", tablas.map(t => t.name));
-
   } catch (err) {
-    console.error("❌ Error al abrir/inicializar base de datos:", err);
+    console.error("❌ Error inicializando la base de datos:", err);
   }
 })();
 
-// 🔹 Endpoint: obtener todos los puestos
+// 🔹 Endpoints
 app.get("/api/puestos", async (req, res) => {
   try {
     console.log("🔹 Consultando tabla puestos...");
@@ -58,14 +75,13 @@ app.get("/api/puestos", async (req, res) => {
   }
 });
 
-// 🔹 Endpoint: detalle de puesto
 app.get("/api/puesto/:id", async (req, res) => {
   try {
     const puesto = await db.get("SELECT * FROM puestos WHERE id = ?", [req.params.id]);
     if (!puesto) return res.status(404).json({ error: "No encontrado" });
     res.json(puesto);
   } catch (err) {
-    console.error("❌ Error al obtener puesto por ID:", err);
+    console.error("❌ Error al obtener puesto:", err);
     res.status(500).json({ error: "Error interno" });
   }
 });
@@ -75,11 +91,10 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
 });
 
-// Manejo global de errores no atrapados
+// 🔹 Manejo global de errores no atrapados
 process.on("unhandledRejection", (reason, promise) => {
   console.error("🚨 Unhandled Rejection:", reason);
 });
-
 process.on("uncaughtException", (err) => {
   console.error("🔥 Uncaught Exception:", err);
 });
