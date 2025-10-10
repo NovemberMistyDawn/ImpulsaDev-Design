@@ -25,19 +25,34 @@ app.get("/", (req, res) => {
 // Abrir DB
 let db;
 (async () => {
-  db = await open({
-    filename: path.join(__dirname, "database.sqlite"), // ✅ ruta absoluta
-    driver: sqlite3.Database,
-  });
+  try {
+    console.log("🔹 Abriendo base de datos...");
+    db = await open({
+      filename: path.join(__dirname, "database.sqlite"),
+      driver: sqlite3.Database,
+    });
+    console.log("✅ Base de datos abierta.");
+
+    // Verificar que la tabla existe
+    const tables = await db.all(
+      "SELECT name FROM sqlite_master WHERE type='table';"
+    );
+    console.log("📋 Tablas existentes:", tables.map(t => t.name));
+
+  } catch (err) {
+    console.error("❌ Error abriendo la base de datos:", err);
+  }
 })();
 
 // 🔹 Endpoint: obtener todos los puestos
 app.get("/api/puestos", async (req, res) => {
   try {
+    console.log("🔹 Consultando tabla puestos...");
     const puestos = await db.all("SELECT id, nombre, descripcion FROM puestos");
+     console.log(`✅ Se encontraron ${puestos.length} puestos.`);
     res.json(puestos);
   } catch (err) {
-    console.error(err);
+   console.error("❌ Error al obtener puestos:", err);
     res.status(500).json({ error: "Error al obtener puestos" });
   }
 });
