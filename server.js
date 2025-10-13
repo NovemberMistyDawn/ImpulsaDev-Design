@@ -168,6 +168,42 @@ app.get("/api/cualidad/:nombre", async (req, res) => {
   }
 });
 
+
+// 🔹 Obtener detalle de un conocimiento por nombre
+app.get("/api/conocimiento/:nombre", async (req, res) => {
+  const nombreConocimiento = req.params.nombre;
+
+  try {
+    const conocimiento = await db.get(
+      `SELECT id, nombre, descripcion FROM conocimientos WHERE nombre = ?`,
+      [nombreConocimiento]
+    );
+
+    if (!conocimiento) {
+      return res.status(404).json({ message: "Conocimiento no encontrado" });
+    }
+
+    // 🔗 Aquí podrías hacer joins reales, pero de momento lo dejamos con datos simulados:
+    const puestosRelacionados = ["Frontend Developer", "Backend Developer"];
+    const itinerariosRelacionados = ["Desarrollo Web", "Ciencia de Datos"];
+
+    // Respuesta que espera tu front
+    res.json({
+      conocimiento_id: conocimiento.id,
+      conocimiento_nombre: conocimiento.nombre,
+      conocimiento_descripcion: conocimiento.descripcion,
+      puestos: puestosRelacionados,
+      itinerarios: itinerariosRelacionados,
+    });
+  } catch (err) {
+    console.error("❌ Error al obtener conocimiento:", err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+});
+
+
+
+
 // 🔹 Iniciar servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
