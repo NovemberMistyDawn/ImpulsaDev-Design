@@ -51,7 +51,7 @@ async function cargarDetallePuesto() {
             ${(data.conocimientos || [])
               .map(item => `
                 <li>
-                  <a href="/detalle-conocimiento?nombre=${encodeURIComponent(item.trim())}">
+                  <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(item.trim())}">
                     ${item.trim()} →
                   </a>
                 </li>
@@ -66,7 +66,7 @@ async function cargarDetallePuesto() {
             ${(data.itinerarios || [])
               .map(it => `
                 <li>
-                  <a href="/detalle-itinerario?nombre=${encodeURIComponent(it.trim())}">
+                  <a href="/detalle-itinerario.html?nombre=${encodeURIComponent(it.trim())}">
                     ${it.trim()} →
                   </a>
                 </li>
