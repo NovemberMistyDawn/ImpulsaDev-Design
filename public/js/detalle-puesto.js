@@ -52,8 +52,8 @@ async function cargarDetallePuesto() {
               .map(item => `
                 <li>
                   <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(item.trim())}">
-                    ${item.trim()} →
-                  </a>
+    ${item.trim()} →
+  </a>
                 </li>
               `)
               .join("")}
