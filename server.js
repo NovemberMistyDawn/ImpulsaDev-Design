@@ -94,6 +94,33 @@ app.get("/api/puesto/:id", async (req, res) => {
   }
 });
 
+
+// 🔹 Obtener detalle de una soft skill (cualidad) por nombre
+app.get("/api/cualidad/:nombre", async (req, res) => {
+  const nombreCualidad = req.params.nombre;
+
+  try {
+    const cualidad = await db.get(
+      `SELECT id, nombre, descripcion FROM cualidades WHERE nombre = ?`,
+      [nombreCualidad]
+    );
+
+    if (!cualidad) {
+      return res.status(404).json({ message: "Cualidad no encontrada" });
+    }
+
+    // Estructura de respuesta esperada por el front
+    res.json({
+      cualidad_id: cualidad.id,
+      cualidad_nombre: cualidad.nombre,
+      cualidad_descripcion: cualidad.descripcion,
+    });
+  } catch (err) {
+    console.error("❌ Error al obtener cualidad:", err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+});
+
 // 🔹 Iniciar servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
