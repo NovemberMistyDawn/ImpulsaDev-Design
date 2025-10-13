@@ -138,47 +138,47 @@ app.get("/api/puestos", async (req, res) => {
 
 // 🟢 Detalle de puesto con relaciones
 app.get("/api/puesto/:id", async (req, res) => {
-  const puestoId = req.params.id;
-
   try {
+    const puestoId = req.params.id;
     const query = `
       SELECT 
         p.id AS puesto_id,
         p.nombre AS puesto_nombre,
         p.descripcion AS puesto_descripcion,
-        GROUP_CONCAT(DISTINCT c.nombre, ', ') AS conocimientos,
-        GROUP_CONCAT(DISTINCT q.nombre, ', ') AS cualidades,
-        GROUP_CONCAT(DISTINCT i.nombre, ', ') AS itinerarios
+        (
+          SELECT GROUP_CONCAT(DISTINCT c.nombre, ', ')
+          FROM conocimientos c
+          JOIN puesto_conocimiento pc ON pc.id_conocimiento = c.id
+          WHERE pc.id_puesto = p.id
+        ) AS conocimientos,
+        (
+          SELECT GROUP_CONCAT(DISTINCT q.nombre, ', ')
+          FROM cualidades q
+          JOIN puesto_cualidad pq ON pq.id_cualidad = q.id
+          WHERE pq.id_puesto = p.id
+        ) AS cualidades,
+        (
+          SELECT GROUP_CONCAT(DISTINCT i.nombre, ', ')
+          FROM itinerarios i
+          JOIN puesto_itinerario pi ON pi.id_itinerario = i.id
+          WHERE pi.id_puesto = p.id
+        ) AS itinerarios
       FROM puestos p
-      LEFT JOIN puesto_conocimiento pc ON p.id = pc.puesto_id
-      LEFT JOIN conocimientos c ON pc.conocimiento_id = c.id
-      LEFT JOIN puesto_cualidad pq ON p.id = pq.puesto_id
-      LEFT JOIN cualidades q ON pq.cualidad_id = q.id
-      LEFT JOIN puesto_itinerario pi ON p.id = pi.puesto_id
-      LEFT JOIN itinerarios i ON pi.itinerario_id = i.id
-      WHERE p.id = ?
-      GROUP BY p.id;
+      WHERE p.id = ?;
     `;
-
     const puesto = await db.get(query, [puestoId]);
 
-    if (!puesto) return res.status(404).json({ message: "Puesto no encontrado" });
+    if (!puesto) return res.status(404).json({ error: "Puesto no encontrado" });
 
-    // Convertir strings a arrays
-    puesto.conocimientos = puesto.conocimientos
-      ? puesto.conocimientos.split(",").map(c => c.trim())
-      : [];
-    puesto.cualidades = puesto.cualidades
-      ? puesto.cualidades.split(",").map(q => q.trim())
-      : [];
-    puesto.itinerarios = puesto.itinerarios
-      ? puesto.itinerarios.split(",").map(i => i.trim())
-      : [];
+    // Parseamos los strings separados por coma a arrays
+    puesto.conocimientos = puesto.conocimientos ? puesto.conocimientos.split(",").map(x => x.trim()) : [];
+    puesto.cualidades = puesto.cualidades ? puesto.cualidades.split(",").map(x => x.trim()) : [];
+    puesto.itinerarios = puesto.itinerarios ? puesto.itinerarios.split(",").map(x => x.trim()) : [];
 
     res.json(puesto);
-  } catch (error) {
-    console.error("❌ Error al obtener detalle del puesto:", error);
-    res.status(500).json({ message: "Error interno del servidor" });
+  } catch (err) {
+    console.error("❌ Error al obtener detalle del puesto:", err);
+    res.status(500).json({ error: "Error interno al obtener puesto" });
   }
 });
 
