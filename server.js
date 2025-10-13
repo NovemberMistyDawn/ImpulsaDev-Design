@@ -41,6 +41,45 @@ let db;
         nombre TEXT NOT NULL,
         descripcion TEXT
       );
+
+        CREATE TABLE IF NOT EXISTS cualidades (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        descripcion TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS conocimientos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        descripcion TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS itinerarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        descripcion TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS puesto_cualidad (
+        puesto_id INTEGER,
+        cualidad_id INTEGER,
+        FOREIGN KEY(puesto_id) REFERENCES puestos(id),
+        FOREIGN KEY(cualidad_id) REFERENCES cualidades(id)
+      );
+
+      CREATE TABLE IF NOT EXISTS puesto_conocimiento (
+        puesto_id INTEGER,
+        conocimiento_id INTEGER,
+        FOREIGN KEY(puesto_id) REFERENCES puestos(id),
+        FOREIGN KEY(conocimiento_id) REFERENCES conocimientos(id)
+      );
+
+      CREATE TABLE IF NOT EXISTS puesto_itinerario (
+        puesto_id INTEGER,
+        itinerario_id INTEGER,
+        FOREIGN KEY(puesto_id) REFERENCES puestos(id),
+        FOREIGN KEY(itinerario_id) REFERENCES itinerarios(id)
+      );
     `);
 
     // Insertar datos iniciales si está vacía
@@ -52,7 +91,15 @@ let db;
           ('Frontend Developer', 'Crea interfaces web modernas'),
           ('Backend Developer', 'Desarrolla APIs y lógica del servidor'),
           ('Data Analyst', 'Analiza y visualiza datos');
+
+
+      INSERT INTO cualidades (nombre, descripcion) VALUES
+        ('Trabajo en equipo', 'Capacidad para colaborar eficazmente con otros profesionales.'),
+        ('Resolución de problemas', 'Capacidad de analizar y solucionar incidencias.'),
+        ('Comunicación', 'Habilidad para expresar ideas claramente.'),
+        ('Adaptabilidad', 'Capacidad para ajustarse a entornos cambiantes.');
       `);
+     
       console.log("✅ Datos insertados.");
     }
 
