@@ -14,7 +14,7 @@ async function cargarPuestos() {
       card.innerHTML = `
         <h2>${nombre}</h2>
         <p>${descripcion}</p>
-        <a href="/detalle-puesto?id=${encodeURIComponent(id)}" class="btn">Más info</a>
+        <a href="/detalle-puesto.html?id=${encodeURIComponent(id)}" class="btn">Más info</a>
       `;
       container.appendChild(card);
     });
