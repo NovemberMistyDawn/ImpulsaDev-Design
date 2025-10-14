@@ -22,29 +22,29 @@ async function cargarDetalleItinerario() {
 
     <!-- Card principal -->
     <div class="card">
-      <h1>${data.itinerario_nombre}</h1>
-      <p>${data.itinerario_descripcion}</p>
+      <h1>${data.nombre}</h1>
+<p>${data.descripcion || "Sin descripción disponible."}</p>
     </div>
 
     <!-- Card de conocimientos -->
     <div class="card">
-      <h2>Conocimientos relacionados</h2>
-      <ul>
-        ${(data.conocimientos || []).map(
-          c => `<li><a class="btn" href="/detalle-conocimiento?nombre=${encodeURIComponent(c.trim())}">${c.trim()} →</a></li>`
-        ).join('')}
-      </ul>
-    </div>
+  <h2>Conocimientos relacionados</h2>
+  <ul>
+    ${(data.conocimientos || []).map(
+      c => `<li><a class="btn" href="/detalle-conocimiento?nombre=${encodeURIComponent(c)}">${c} →</a></li>`
+    ).join('')}
+  </ul>
+</div>
 
     <!-- Card de puestos -->
-    <div class="card">
-      <h2>Puestos relacionados</h2>
-      <ul>
-        ${data.puestos.map(
-          p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p.id)}">${p.nombre} →</a></li>`
-        ).join('')}
-      </ul>
-    </div>
+   <div class="card">
+  <h2>Puestos relacionados</h2>
+  <ul>
+    ${(data.puestos || []).map(
+      p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p)}">${p} →</a></li>`
+    ).join('')}
+  </ul>
+</div>
   </div>
 
   <!-- Botón volver -->
