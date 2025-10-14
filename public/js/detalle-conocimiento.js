@@ -29,18 +29,18 @@ async function cargarDetalleConocimiento() {
           <div class="card">
             <h2>Puestos relacionados</h2>
             <ul>
-              ${data.puestos.map(
-                p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p.trim())}">${p.trim()} →</a></li>`
-              ).join("")}
+           ${(data.puestos || []).map(
+  p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p.id)}">${p.nombre} →</a></li>`
+).join("")}
             </ul>
           </div>
 
           <div class="card">
             <h2>Itinerarios relacionados</h2>
             <ul>
-              ${data.itinerarios.map(
-                it => `<li><a class="btn" href="/detalle-itinerario?nombre=${encodeURIComponent(it.trim())}">${it.trim()} →</a></li>`
-              ).join("")}
+             ${(data.itinerarios || []).map(
+  it => `<li><a class="btn" href="/detalle-itinerario?nombre=${encodeURIComponent(it.nombre)}">${it.nombre} →</a></li>`
+).join("")}
             </ul>
           </div>
         </div>

@@ -309,17 +309,31 @@ app.get("/api/conocimiento/:nombre", async (req, res) => {
       return res.status(404).json({ message: "Conocimiento no encontrado" });
     }
 
-    // 🔗 Aquí podrías hacer joins reales, pero de momento lo dejamos con datos simulados:
-    const puestosRelacionados = ["Frontend Developer", "Backend Developer"];
-    const itinerariosRelacionados = ["Desarrollo Web", "Ciencia de Datos"];
+    // 🔍 Obtener puestos relacionados
+    const puestos = await db.all(
+      `SELECT p.id, p.nombre
+       FROM puestos p
+       INNER JOIN puesto_conocimiento pc ON p.id = pc.puesto_id
+       WHERE pc.conocimiento_id = ?`,
+      [conocimiento.id]
+    );
 
-    // Respuesta que espera tu front
+    // 🔍 Obtener itinerarios relacionados (vía puestos → itinerarios)
+    const itinerarios = await db.all(
+      `SELECT DISTINCT i.id, i.nombre
+       FROM itinerarios i
+       INNER JOIN puesto_itinerario pi ON i.id = pi.itinerario_id
+       INNER JOIN puesto_conocimiento pc ON pi.puesto_id = pc.puesto_id
+       WHERE pc.conocimiento_id = ?`,
+      [conocimiento.id]
+    );
+
     res.json({
       conocimiento_id: conocimiento.id,
       conocimiento_nombre: conocimiento.nombre,
       conocimiento_descripcion: conocimiento.descripcion,
-      puestos: puestosRelacionados,
-      itinerarios: itinerariosRelacionados,
+      puestos,
+      itinerarios
     });
   } catch (err) {
     console.error("❌ Error al obtener conocimiento:", err);
