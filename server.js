@@ -110,6 +110,27 @@ let db;
       ('Ciencia de Datos', 'Ruta enfocada en análisis, estadística y machine learning.'),
       ('Administración de Sistemas', 'Ruta orientada a redes, servidores y seguridad.');
       `);
+
+
+      await db.exec(`
+  INSERT INTO puesto_cualidad (puesto_id, cualidad_id) VALUES
+    (1, 1), (1, 2), (1, 3),
+    (2, 2), (2, 4),
+    (3, 2), (3, 3),
+    (4, 1), (4, 4);
+
+  INSERT INTO puesto_conocimiento (puesto_id, conocimiento_id) VALUES
+    (1, 1), (1, 3),
+    (2, 2), (2, 3),
+    (3, 2), (3, 3),
+    (4, 4), (4, 3);
+
+  INSERT INTO puesto_itinerario (puesto_id, itinerario_id) VALUES
+    (1, 1),
+    (2, 1),
+    (3, 2),
+    (4, 3);
+`);
      
       console.log("✅ Datos insertados.");
     }
