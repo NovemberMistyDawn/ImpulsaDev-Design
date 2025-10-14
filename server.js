@@ -229,6 +229,55 @@ app.get("/api/cualidad/:nombre", async (req, res) => {
   }
 });
 
+// 🔹 Obtener detalle de un itinerario por nombre
+app.get("/api/itinerario/:nombre", async (req, res) => {
+  const nombreItinerario = req.params.nombre;
+
+  try {
+    // 1️⃣ Buscar el itinerario
+    const itinerario = await db.get(
+      `SELECT id, nombre, descripcion FROM itinerarios WHERE nombre = ?`,
+      [nombreItinerario]
+    );
+
+    if (!itinerario) {
+      return res.status(404).json({ message: "Itinerario no encontrado" });
+    }
+
+    // 2️⃣ Conocimientos asociados
+    const conocimientos = await db.all(
+      `SELECT con.nombre
+       FROM conocimientos con
+       INNER JOIN puesto_conocimiento pc ON con.id = pc.conocimiento_id
+       INNER JOIN puesto_itinerario pi ON pc.puesto_id = pi.puesto_id
+       WHERE pi.itinerario_id = ?`,
+      [itinerario.id]
+    );
+
+    // 3️⃣ Puestos asociados
+    const puestos = await db.all(
+      `SELECT p.nombre
+       FROM puestos p
+       INNER JOIN puesto_itinerario pi ON p.id = pi.puesto_id
+       WHERE pi.itinerario_id = ?`,
+      [itinerario.id]
+    );
+
+    // 4️⃣ Devolver respuesta
+    res.json({
+      id: itinerario.id,
+      nombre: itinerario.nombre,
+      descripcion: itinerario.descripcion,
+      conocimientos: conocimientos.map(c => c.nombre),
+      puestos: puestos.map(p => p.nombre),
+    });
+
+  } catch (err) {
+    console.error("❌ Error al obtener itinerario:", err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+});
+
 
 // 🔹 Obtener detalle de un conocimiento por nombre
 app.get("/api/conocimiento/:nombre", async (req, res) => {
