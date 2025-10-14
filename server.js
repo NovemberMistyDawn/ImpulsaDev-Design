@@ -23,6 +23,23 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+// 🔹 Servir las páginas de detalle (para que funcionen las rutas del front)
+app.get("/detalle-puesto", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "detalle-puesto.html"));
+});
+
+app.get("/detalle-itinerario", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "detalle-itinerario.html"));
+});
+
+app.get("/detalle-conocimiento", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "detalle-conocimiento.html"));
+});
+
+app.get("/detalle-cualidad", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "detalle-cualidad.html"));
+});
+
 // 🔹 Inicialización de SQLite
 let db;
 (async () => {

@@ -40,9 +40,9 @@ async function cargarDetalleItinerario() {
    <div class="card">
   <h2>Puestos relacionados</h2>
   <ul>
-    ${(data.puestos || []).map(
-      p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p)}">${p} →</a></li>`
-    ).join('')}
+   ${(data.puestos || []).map(
+  p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p.id)}">${p.nombre} →</a></li>`
+).join('')}
   </ul>
 </div>
   </div>
