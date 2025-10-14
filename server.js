@@ -98,6 +98,17 @@ let db;
         ('Resolución de problemas', 'Capacidad de analizar y solucionar incidencias.'),
         ('Comunicación', 'Habilidad para expresar ideas claramente.'),
         ('Adaptabilidad', 'Capacidad para ajustarse a entornos cambiantes.');
+
+         INSERT INTO conocimientos (nombre, descripcion) VALUES
+      ('JavaScript', 'Lenguaje base para desarrollo web frontend.'),
+      ('Python', 'Lenguaje de programación versátil, usado en backend y análisis de datos.'),
+      ('SQL', 'Lenguaje para gestión y consultas a bases de datos.'),
+      ('Linux', 'Sistema operativo común en entornos de servidores.');
+
+    INSERT INTO itinerarios (nombre, descripcion) VALUES
+      ('Desarrollo Web', 'Ruta para aprender desarrollo fullstack con JS.'),
+      ('Ciencia de Datos', 'Ruta enfocada en análisis, estadística y machine learning.'),
+      ('Administración de Sistemas', 'Ruta orientada a redes, servidores y seguridad.');
       `);
      
       console.log("✅ Datos insertados.");
@@ -124,16 +135,45 @@ app.get("/api/puestos", async (req, res) => {
 // 🔹 Endpoint: detalle completo de un puesto
 app.get("/api/puesto/:id", async (req, res) => {
   try {
-    // Consulta ejemplo: aquí puedes añadir joins si implementas relaciones
-    const puesto = await db.get("SELECT * FROM puestos WHERE id = ?", [req.params.id]);
+    const puestoId = req.params.id;
+
+    // 1️⃣ Obtener el puesto principal
+    const puesto = await db.get("SELECT * FROM puestos WHERE id = ?", [puestoId]);
     if (!puesto) return res.status(404).json({ error: "No encontrado" });
 
-    // Si tienes relaciones con soft skills, conocimientos e itinerarios:
-    // Aquí se podrían poblar arrays de ejemplo, luego reemplaza por joins reales
-    puesto.cualidades = ["Trabajo en equipo", "Resolución de problemas"];
-    puesto.conocimientos = ["JavaScript", "SQL"];
-    puesto.itinerarios = ["Desarrollo Web"];
+    // 2️⃣ Obtener las cualidades (soft skills) asociadas
+    const cualidades = await db.all(
+      `SELECT c.nombre
+       FROM cualidades c
+       INNER JOIN puesto_cualidad pc ON c.id = pc.cualidad_id
+       WHERE pc.puesto_id = ?`,
+      [puestoId]
+    );
 
+    // 3️⃣ Obtener los conocimientos asociados
+    const conocimientos = await db.all(
+      `SELECT con.nombre
+       FROM conocimientos con
+       INNER JOIN puesto_conocimiento pc ON con.id = pc.conocimiento_id
+       WHERE pc.puesto_id = ?`,
+      [puestoId]
+    );
+
+    // 4️⃣ Obtener los itinerarios asociados
+    const itinerarios = await db.all(
+      `SELECT i.nombre
+       FROM itinerarios i
+       INNER JOIN puesto_itinerario pi ON i.id = pi.itinerario_id
+       WHERE pi.puesto_id = ?`,
+      [puestoId]
+    );
+
+    // 5️⃣ Formatear la respuesta con arrays planos
+    puesto.cualidades = cualidades.map(c => c.nombre);
+    puesto.conocimientos = conocimientos.map(c => c.nombre);
+    puesto.itinerarios = itinerarios.map(i => i.nombre);
+
+    // 6️⃣ Devolver resultado
     res.json(puesto);
   } catch (err) {
     console.error("❌ Error al obtener detalle del puesto:", err);
