@@ -244,9 +244,9 @@ app.get("/api/itinerario/:nombre", async (req, res) => {
       return res.status(404).json({ message: "Itinerario no encontrado" });
     }
 
-    // 2️⃣ Conocimientos asociados
+ // Conocimientos relacionados
     const conocimientos = await db.all(
-      `SELECT con.nombre
+      `SELECT DISTINCT con.nombre
        FROM conocimientos con
        INNER JOIN puesto_conocimiento pc ON con.id = pc.conocimiento_id
        INNER JOIN puesto_itinerario pi ON pc.puesto_id = pi.puesto_id
@@ -254,22 +254,21 @@ app.get("/api/itinerario/:nombre", async (req, res) => {
       [itinerario.id]
     );
 
-    // 3️⃣ Puestos asociados
+    // Puestos relacionados (ahora con id y nombre)
     const puestos = await db.all(
-      `SELECT p.nombre
+      `SELECT DISTINCT p.id, p.nombre
        FROM puestos p
        INNER JOIN puesto_itinerario pi ON p.id = pi.puesto_id
        WHERE pi.itinerario_id = ?`,
       [itinerario.id]
     );
 
-    // 4️⃣ Devolver respuesta
     res.json({
       id: itinerario.id,
       nombre: itinerario.nombre,
       descripcion: itinerario.descripcion,
       conocimientos: conocimientos.map(c => c.nombre),
-      puestos: puestos.map(p => p.nombre),
+      puestos: puestos,  // devolvemos objetos con id y nombre
     });
 
   } catch (err) {
