@@ -10,7 +10,7 @@ async function cargarDetalleConocimiento() {
   }
 
   try {
-    const res = await fetch(`http://localhost:8080/api/conocimiento/${encodeURIComponent(nombre)}`);
+    const res = await fetch(`/api/conocimiento/${encodeURIComponent(nombre)}`);
     if (!res.ok) {
       container.textContent = "No se encontró el conocimiento solicitado.";
       return;
