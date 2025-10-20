@@ -123,6 +123,77 @@
       min-width: 400px;
     }
 
+
+
+/* Esquema de niveles */
+    .levels-schema {
+      position: absolute;
+      left: -180px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .level-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(68, 102, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      margin-bottom: 60px;
+    }
+
+    .level-circle:last-child {
+      margin-bottom: 0;
+    }
+
+    .level-circle:hover {
+      background: rgba(34, 62, 146, 0.9);
+      transform: scale(1.05);
+    }
+
+    .level-circle.active {
+      background: #223E92;
+      box-shadow: 0 0 20px rgba(34, 62, 146, 0.5);
+    }
+
+    .connection-line {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 2px;
+      height: 60px;
+      background: transparent;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+
+    .connection-line::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: #223E92;
+      transition: height 0.8s ease;
+    }
+
+    .connection-line.animate::after {
+      height: 100%;
+    }
+
+
+
+
     .chat-box {
       background: white;
       color: #223e92;
