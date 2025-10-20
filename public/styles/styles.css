@@ -186,18 +186,18 @@
       box-shadow: 0 0 20px rgba(34, 62, 146, 0.5);
     }
 
-    .connection-line {
-      position: absolute;
-      left: 50%;
-      bottom: 100%;
-      width: 2px;
-      height: 90px;
-      background: transparent;
-      transform-origin: bottom center;
-      transform: translateX(-50%) rotate(-45deg);
-      overflow: hidden;
-    }
-
+   /* 🔹 Línea corregida (ahora apunta arriba a la izquierda) */
+.connection-line {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  width: 2px;
+  height: 90px;
+  background: transparent;
+  transform-origin: bottom left;
+  transform: rotate(45deg);
+  overflow: hidden;
+}
     .connection-line::after {
       content: '';
       position: absolute;

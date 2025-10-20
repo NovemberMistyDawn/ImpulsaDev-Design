@@ -40,25 +40,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Levels Schema Animation
-  const levelCircles = document.querySelectorAll('.level-circle');
+const levelCircles = document.querySelectorAll('.level-circle');
   const connectionLines = document.querySelectorAll('.connection-line');
+
+  if (!levelCircles.length) return; // seguridad: no ejecutar si no existen
 
   let currentLevel = 0;
   let autoPlayInterval;
   let isManualMode = false;
 
-  // Función para activar un nivel y animar la línea
   function activateLevel(index) {
     // Resetear todos
     levelCircles.forEach(circle => circle.classList.remove('active'));
     connectionLines.forEach(line => line.classList.remove('animate'));
-    
+
     // Activar nivel actual
     if (levelCircles[index]) {
       levelCircles[index].classList.add('active');
     }
-    
+
     // Animar líneas hasta el nivel actual
     for (let i = 0; i < index; i++) {
       if (connectionLines[i]) {
@@ -67,28 +67,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Función para avanzar al siguiente nivel
   function nextLevel() {
     currentLevel = (currentLevel + 1) % levelCircles.length;
     activateLevel(currentLevel);
   }
 
-  // Auto-play muy lento (4 segundos por nivel)
   function startAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-    }
-    autoPlayInterval = setInterval(nextLevel, 4000);
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = setInterval(() => {
+      if (!isManualMode) nextLevel();
+    }, 4000);
   }
 
-  // Click manual en los círculos
+  // Click manual
   levelCircles.forEach((circle, index) => {
     circle.addEventListener('click', () => {
       isManualMode = true;
       currentLevel = index;
       activateLevel(currentLevel);
-      
-      // Reiniciar auto-play después de 8 segundos de inactividad
+
       clearInterval(autoPlayInterval);
       setTimeout(() => {
         isManualMode = false;
@@ -97,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Iniciar animación
+  // 🔹 Iniciar animación automáticamente
   activateLevel(0);
   startAutoPlay();
 
