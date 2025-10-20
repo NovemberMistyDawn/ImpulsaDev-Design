@@ -186,34 +186,89 @@
       box-shadow: 0 0 20px rgba(34, 62, 146, 0.5);
     }
 
-   /* 🔹 Línea corregida (ahora apunta arriba a la izquierda) */
+   .levels-schema {
+  position: absolute;
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.level-circle {
+  border-radius: 50%;
+  background: rgba(68, 102, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Niveles con desplazamiento diagonal */
+.level-circle[data-level="junior"] {
+  width: 70px;
+  height: 70px;
+  margin-left: 0;
+  margin-top: 80px;
+}
+
+.level-circle[data-level="mid"] {
+  width: 85px;
+  height: 85px;
+  margin-left: 60px;
+  margin-top: 100px;
+}
+
+.level-circle[data-level="senior"] {
+  width: 100px;
+  height: 100px;
+  margin-left: 130px;
+}
+
+.level-circle:hover {
+  background: rgba(34, 62, 146, 0.9);
+  transform: scale(1.05);
+}
+
+.level-circle.active {
+  background: #223E92;
+  box-shadow: 0 0 20px rgba(34, 62, 146, 0.5);
+}
+
+/* 🔹 Línea ajustada para conectar exactamente centro con centro */
 .connection-line {
   position: absolute;
-  left: 0;
-  bottom: 100%;
+  bottom: calc(100% - 10px); /* justo debajo del círculo superior */
+  left: 50%;
   width: 2px;
-  height: 90px;
+  height: 110px;
   background: transparent;
-  transform-origin: bottom left;
-  transform: rotate(45deg);
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(45deg);
   overflow: hidden;
 }
-    .connection-line::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 0;
-      background: #223E92;
-      transition: height 0.8s ease;
-    }
 
-    .connection-line.animate::after {
-      height: 100%;
-    }
+.connection-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #223E92;
+  transition: height 0.8s ease;
+}
 
-
+.connection-line.animate::after {
+  height: 100%;
+}
 
     .chat-box {
       background: white;
