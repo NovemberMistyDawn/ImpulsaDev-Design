@@ -124,84 +124,94 @@
     }
 
 
+/* Esquema de niveles */
+    .levels-schema {
+      position: absolute;
+      left: -200px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0;
+    }
 
-/* Contenedor de niveles */
-.levels-schema {
-  position: absolute;
-  left: -200px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column-reverse; /* Junior abajo, Senior arriba */
-  align-items: flex-start; /* alineación a la izquierda */
-  gap: 40px; /* espacio entre niveles */
-  z-index: 2;
-}
+    .level-circle {
+      border-radius: 50%;
+      background: rgba(68, 102, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-/* Círculos de niveles */
-.level-circle {
-  border-radius: 50%;
-  background: rgba(68, 102, 255, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
+    /* Junior - pequeño, abajo */
+    .level-circle[data-level="junior"] {
+      width: 70px;
+      height: 70px;
+      font-size: 0.85rem;
+      margin-left: 0;
+      margin-top: 80px;
+    }
 
-/* Tamaños por nivel */
-.level-circle[data-level="junior"] {
-  width: 70px;
-  height: 70px;
-  font-size: 0.85rem;
-}
+    /* Mid - mediano, centro */
+    .level-circle[data-level="mid"] {
+      width: 85px;
+      height: 85px;
+      font-size: 0.95rem;
+      margin-left: 60px;
+      margin-top: 80px;
+    }
 
-.level-circle[data-level="mid"] {
-  width: 85px;
-  height: 85px;
-  font-size: 0.95rem;
-}
+    /* Senior - grande, arriba */
+    .level-circle[data-level="senior"] {
+      width: 100px;
+      height: 100px;
+      font-size: 1.1rem;
+      margin-left: 120px;
+    }
 
-.level-circle[data-level="senior"] {
-  width: 100px;
-  height: 100px;
-  font-size: 1.1rem;
-}
+    .level-circle:hover {
+      background: rgba(34, 62, 146, 0.9);
+      transform: scale(1.05);
+    }
 
-/* Hover y activo */
-.level-circle:hover {
-  background: rgba(34, 62, 146, 0.9);
-  transform: scale(1.05);
-}
+    .level-circle.active {
+      background: #223E92;
+      box-shadow: 0 0 20px rgba(34, 62, 146, 0.5);
+    }
 
-.level-circle.active {
-  background: #223E92;
-  box-shadow: 0 0 20px rgba(34, 62, 146, 0.5);
-}
+    .connection-line {
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      width: 2px;
+      height: 90px;
+      background: transparent;
+      transform-origin: bottom center;
+      transform: translateX(-50%) rotate(-45deg);
+      overflow: hidden;
+    }
 
-/* Líneas de conexión vertical */
-.connection-line {
-  position: absolute;
-  top: 0; /* empieza en el centro superior del círculo */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 40px; /* altura de la línea, ajusta según gap */
-  background: #223E92;
-}
+    .connection-line::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: #223E92;
+      transition: height 0.8s ease;
+    }
 
-.level-circle:last-child .connection-line {
-  display: none; /* quitar línea del último círculo (senior) */
-}
+    .connection-line.animate::after {
+      height: 100%;
+    }
 
-/* Animación de línea */
-.connection-line.animate {
-  height: 100%; /* crecer hasta la siguiente posición */
-  transition: height 0.8s ease;
-}
 
     .chat-box {
       background: white;
