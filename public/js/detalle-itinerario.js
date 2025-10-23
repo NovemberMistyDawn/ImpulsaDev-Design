@@ -20,9 +20,9 @@ async function cargarDetalleItinerario() {
 
     // Generamos los niveles
     const niveles = {
-      0: 'Junior',
-      1: 'Mid',
-      2: 'Senior'
+      0: 'Sin orden',
+      1: 'Orden 1',
+      2: 'Orden 2'
     };
 
     // Agrupamos conocimientos por nivel
@@ -42,7 +42,9 @@ async function cargarDetalleItinerario() {
           <p>${data.descripcion || "Sin descripción disponible."}</p>
         </div>
 
-       <!-- Esquema de conocimientos -->
+      
+
+ <!-- Esquema de conocimientos -->
         <div class="card card-conocimientos">
           <div class="card-header">
             <span class="icon">📚</span>
@@ -67,7 +69,6 @@ async function cargarDetalleItinerario() {
                     <div class="knowledge-branches knowledge-left">
                       ${izquierda.map(c => `
                         <div class="knowledge-item">
-                          <div class="branch-line"></div>
                           <a href="/detalle-conocimiento?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
                             <span class="icon-tech">🔧</span>
                             ${c.nombre}
@@ -91,21 +92,18 @@ async function cargarDetalleItinerario() {
                             ${c.nombre}
                             <span class="arrow">→</span>
                           </a>
-                          <div class="branch-line"></div>
                         </div>
                       `).join('')}
                     </div>
-                  </div>
-                  
-                  <!-- Etiqueta del nivel -->
-                  <div class="level-label" data-nivel="${nivel}">
-                    ${niveles[nivel]}
                   </div>
                 `;
               }).join('')}
             </div>
           </div>
         </div>
+
+
+
 
         <!-- Card de puestos -->
         <div class="card">
@@ -134,10 +132,10 @@ async function cargarDetalleItinerario() {
   }
 }
 
+
 function initLevelsInteraction() {
   const circles = document.querySelectorAll('.level-circle');
   const rows = document.querySelectorAll('.level-row');
-  const labels = document.querySelectorAll('.level-label');
   let selectedLevel = 1; // Mid por defecto
 
   function activateLevel(nivel) {
@@ -168,16 +166,6 @@ function initLevelsInteraction() {
         });
       }
     });
-    
-    // Actualizar etiquetas
-    labels.forEach(label => {
-      const labelNivel = parseInt(label.dataset.nivel);
-      if (labelNivel === nivel) {
-        label.classList.add('active');
-      } else {
-        label.classList.remove('active');
-      }
-    });
   }
 
   // Event listeners
@@ -187,7 +175,6 @@ function initLevelsInteraction() {
       activateLevel(nivel);
     });
   });
-
 
   // Activar nivel inicial
   activateLevel(selectedLevel);
