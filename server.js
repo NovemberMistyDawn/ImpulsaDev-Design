@@ -97,6 +97,20 @@ let db;
         FOREIGN KEY(puesto_id) REFERENCES puestos(id),
         FOREIGN KEY(itinerario_id) REFERENCES itinerarios(id)
       );
+
+
+CREATE TABLE IF NOT EXISTS itinerario_conocimiento (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  itinerario_id INTEGER,
+  conocimiento_id INTEGER,
+  nivel INTEGER,
+  FOREIGN KEY (itinerario_id) REFERENCES itinerarios(id),
+  FOREIGN KEY (conocimiento_id) REFERENCES conocimientos(id)
+);
+
+
+
+
     `);
 
     // Insertar datos iniciales si está vacía
@@ -147,6 +161,17 @@ let db;
     (2, 1),
     (3, 2),
     (4, 3);
+
+INSERT INTO itinerario_conocimiento (itinerario_id, conocimiento_id, nivel) VALUES
+    (1, 1, 0), -- JavaScript nivel 0 en "Desarrollo Web"
+    (1, 2, 1), -- Python nivel 1
+    (1, 3, 2), -- SQL nivel 2
+    (2, 2, 0), -- Ciencia de Datos: Python nivel 0
+    (2, 3, 1), -- SQL nivel 1
+    (2, 4, 2); -- Linux nivel 2
+
+
+
 `);
      
       console.log("✅ Datos insertados.");
@@ -261,13 +286,13 @@ app.get("/api/itinerario/:nombre", async (req, res) => {
       return res.status(404).json({ message: "Itinerario no encontrado" });
     }
 
- // Conocimientos relacionados
+  // 🔸 Conocimientos con nivel
     const conocimientos = await db.all(
-      `SELECT DISTINCT con.nombre
+      `SELECT con.nombre, con.descripcion, ic.nivel
        FROM conocimientos con
-       INNER JOIN puesto_conocimiento pc ON con.id = pc.conocimiento_id
-       INNER JOIN puesto_itinerario pi ON pc.puesto_id = pi.puesto_id
-       WHERE pi.itinerario_id = ?`,
+       INNER JOIN itinerario_conocimiento ic ON ic.conocimiento_id = con.id
+       WHERE ic.itinerario_id = ?
+       ORDER BY ic.nivel ASC`,
       [itinerario.id]
     );
 
@@ -282,10 +307,10 @@ app.get("/api/itinerario/:nombre", async (req, res) => {
 
     res.json({
       id: itinerario.id,
-      nombre: itinerario.nombre,
-      descripcion: itinerario.descripcion,
-      conocimientos: conocimientos.map(c => c.nombre),
-      puestos: puestos,  // devolvemos objetos con id y nombre
+  nombre: itinerario.nombre,
+  descripcion: itinerario.descripcion,
+  conocimientos: conocimientos, // ahora incluye { nombre, descripcion, nivel }
+  puestos: puestos, // sigue igual
     });
 
   } catch (err) {

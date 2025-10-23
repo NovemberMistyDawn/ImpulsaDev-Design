@@ -14,6 +14,9 @@ body {
   margin: 0;
 }
 
+
+
+
 /* ====== NAVBAR ====== */
 
 
@@ -203,3 +206,44 @@ ul {
   opacity: 1;
 }
 
+/*ESQUEMA NIVELES */
+
+.levels-schema {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  position: relative;
+  gap: 40px;
+  margin-top: 2rem;
+}
+
+.level-circle {
+  border-radius: 50%;
+  background: rgba(68, 102, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.level-circle[data-level="junior"] { width: 70px; height: 70px; font-size: 0.8rem; }
+.level-circle[data-level="mid"]    { width: 90px; height: 90px; font-size: 0.9rem; }
+.level-circle[data-level="senior"] { width: 110px; height: 110px; font-size: 1rem; }
+
+.level-circle ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.connection-line {
+  width: 2px;
+  height: 60px;
+  background: #223E92;
+}
