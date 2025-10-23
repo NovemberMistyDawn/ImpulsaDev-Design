@@ -42,8 +42,8 @@ async function cargarDetalleItinerario() {
           <p>${data.descripcion || "Sin descripción disponible."}</p>
         </div>
 
-        <!-- Esquema de conocimientos -->
-        <div class="card">
+       <!-- Esquema de conocimientos -->
+        <div class="card card-conocimientos">
           <div class="card-header">
             <span class="icon">📚</span>
             <h2>Conocimientos</h2>
@@ -106,7 +106,6 @@ async function cargarDetalleItinerario() {
             </div>
           </div>
         </div>
-
 
         <!-- Card de puestos -->
         <div class="card">
@@ -188,6 +187,7 @@ function initLevelsInteraction() {
       activateLevel(nivel);
     });
   });
+
 
   // Activar nivel inicial
   activateLevel(selectedLevel);
