@@ -42,23 +42,71 @@ async function cargarDetalleItinerario() {
           <p>${data.descripcion || "Sin descripción disponible."}</p>
         </div>
 
-        <!-- Esquema vertical de niveles -->
+        <!-- Esquema de conocimientos -->
         <div class="card">
-          <h2>Progresión de conocimientos</h2>
-          <div class="levels-schema">
-            ${[2,1,0].map(nivel => `
-              <div class="level-circle" data-level="${niveles[nivel].toLowerCase()}">
-                <strong>${niveles[nivel]}</strong>
-                <ul>
-                  ${(conocimientosPorNivel[nivel] || [])
-                    .map(c => `<li><a href="/detalle-conocimiento?nombre=${encodeURIComponent(c.nombre)}">${c.nombre}</a></li>`)
-                    .join('')}
-                </ul>
-              </div>
-              ${nivel > 0 ? `<div class="connection-line"></div>` : ''}
-            `).join('')}
+          <div class="card-header">
+            <span class="icon">📚</span>
+            <h2>Conocimientos</h2>
+          </div>
+          <p class="card-subtitle">Pulsa en un nivel de conocimiento a continuación para ver más detalle.</p>
+          
+          <div class="levels-schema-wrapper">
+            <div class="levels-schema">
+              <!-- Línea vertical central -->
+              <div class="vertical-line"></div>
+              
+              ${[0, 1, 2].map(nivel => {
+                const conocimientos = conocimientosPorNivel[nivel] || [];
+                const mitad = Math.ceil(conocimientos.length / 2);
+                const izquierda = conocimientos.slice(0, mitad);
+                const derecha = conocimientos.slice(mitad);
+                
+                return `
+                  <div class="level-row" data-nivel="${nivel}">
+                    <!-- Conocimientos izquierda -->
+                    <div class="knowledge-branches knowledge-left">
+                      ${izquierda.map(c => `
+                        <div class="knowledge-item">
+                          <div class="branch-line"></div>
+                          <a href="/detalle-conocimiento?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
+                            <span class="icon-tech">🔧</span>
+                            ${c.nombre}
+                            <span class="arrow">→</span>
+                          </a>
+                        </div>
+                      `).join('')}
+                    </div>
+                    
+                    <!-- Círculo central -->
+                    <button class="level-circle" data-nivel="${nivel}">
+                      ${nivel}
+                    </button>
+                    
+                    <!-- Conocimientos derecha -->
+                    <div class="knowledge-branches knowledge-right">
+                      ${derecha.map(c => `
+                        <div class="knowledge-item">
+                          <a href="/detalle-conocimiento?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
+                            <span class="icon-tech">🔧</span>
+                            ${c.nombre}
+                            <span class="arrow">→</span>
+                          </a>
+                          <div class="branch-line"></div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                  
+                  <!-- Etiqueta del nivel -->
+                  <div class="level-label" data-nivel="${nivel}">
+                    ${niveles[nivel]}
+                  </div>
+                `;
+              }).join('')}
+            </div>
           </div>
         </div>
+
 
         <!-- Card de puestos -->
         <div class="card">
@@ -76,10 +124,74 @@ async function cargarDetalleItinerario() {
         <a class="btn" href="/">← Volver al buscador</a>
       </div>
     `;
+
+    // Inicializar interactividad
+    initLevelsInteraction();
+
+
   } catch (error) {
     container.textContent = 'Error cargando la información del itinerario.';
     console.error(error);
   }
 }
 
-window.addEventListener('DOMContentLoaded', cargarDetalleItinerario);
+function initLevelsInteraction() {
+  const circles = document.querySelectorAll('.level-circle');
+  const rows = document.querySelectorAll('.level-row');
+  const labels = document.querySelectorAll('.level-label');
+  let selectedLevel = 1; // Mid por defecto
+
+  function activateLevel(nivel) {
+    selectedLevel = nivel;
+    
+    // Actualizar círculos
+    circles.forEach(circle => {
+      const circleNivel = parseInt(circle.dataset.nivel);
+      if (circleNivel === nivel) {
+        circle.classList.add('active');
+      } else {
+        circle.classList.remove('active');
+      }
+    });
+    
+    // Mostrar/ocultar ramas
+    rows.forEach(row => {
+      const rowNivel = parseInt(row.dataset.nivel);
+      const branches = row.querySelectorAll('.knowledge-branches');
+      
+      if (rowNivel === nivel) {
+        branches.forEach(branch => {
+          branch.classList.add('active');
+        });
+      } else {
+        branches.forEach(branch => {
+          branch.classList.remove('active');
+        });
+      }
+    });
+    
+    // Actualizar etiquetas
+    labels.forEach(label => {
+      const labelNivel = parseInt(label.dataset.nivel);
+      if (labelNivel === nivel) {
+        label.classList.add('active');
+      } else {
+        label.classList.remove('active');
+      }
+    });
+  }
+
+  // Event listeners
+  circles.forEach(circle => {
+    circle.addEventListener('click', () => {
+      const nivel = parseInt(circle.dataset.nivel);
+      activateLevel(nivel);
+    });
+  });
+
+  // Activar nivel inicial
+  activateLevel(selectedLevel);
+}
+
+// Iniciar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', cargarDetalleItinerario);

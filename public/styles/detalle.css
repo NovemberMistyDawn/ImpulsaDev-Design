@@ -126,6 +126,13 @@ ul {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -206,44 +213,234 @@ ul {
   opacity: 1;
 }
 
-/*ESQUEMA NIVELES */
-
-.levels-schema {
+/* ====== ESQUEMA DE NIVELES INTERACTIVO ====== */
+.levels-schema-wrapper {
   display: flex;
-  flex-direction: column-reverse;
+  justify-content: center;
   align-items: center;
-  position: relative;
-  gap: 40px;
-  margin-top: 2rem;
+  min-height: 500px;
+  padding: 2rem 0;
 }
 
-.level-circle {
-  border-radius: 50%;
-  background: rgba(68, 102, 255, 0.7);
+.levels-schema {
+  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 5rem;
+}
+
+/* Línea vertical central */
+.vertical-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #223E92;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Fila de cada nivel */
+.level-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Círculo de nivel */
+.level-circle {
+  min-width: 60px;
+  min-height: 60px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #4466FF;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(68, 102, 255, 0.3);
+  position: relative;
+  z-index: 10;
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+}
+
+.level-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(68, 102, 255, 0.4);
+}
+
+.level-circle.active {
+  background: #F18657;
+  transform: scale(1.2);
+  box-shadow: 0 8px 25px rgba(241, 134, 87, 0.5);
+  ring: 4px solid rgba(241, 134, 87, 0.3);
+}
+
+/* Tamaños según nivel */
+.level-row[data-nivel="0"] .level-circle {
+  width: 60px;
+  height: 60px;
+  font-size: 1rem;
+}
+
+.level-row[data-nivel="1"] .level-circle {
+  width: 70px;
+  height: 70px;
+  font-size: 1.1rem;
+}
+
+.level-row[data-nivel="2"] .level-circle {
+  width: 80px;
+  height: 80px;
+  font-size: 1.2rem;
+}
+
+/* Ramas de conocimientos */
+.knowledge-branches {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  min-width: 200px;
+}
+
+.knowledge-branches.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.knowledge-left {
+  align-items: flex-end;
+  transform: translateX(-20px);
+}
+
+.knowledge-left.active {
+  transform: translateX(0);
+}
+
+.knowledge-right {
+  align-items: flex-start;
+}
+
+/* Items de conocimiento */
+.knowledge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeSlideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.knowledge-branches.active .knowledge-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.knowledge-branches.active .knowledge-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.knowledge-branches.active .knowledge-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Línea de rama horizontal */
+.branch-line {
+  width: 3rem;
+  height: 2px;
+  background: #223E92;
+  flex-shrink: 0;
+}
+
+/* Botón de conocimiento */
+.knowledge-btn {
+  background: #E8ECFF;
+  color: #223E92;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+
+.knowledge-btn:hover {
+  background: #D4DBFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.knowledge-btn .icon-tech {
+  color: #4466FF;
+  font-size: 1rem;
+}
+
+.knowledge-btn .arrow {
+  color: #4466FF;
+  font-weight: 700;
+}
+
+/* Etiquetas de nivel */
+.level-label {
+  position: absolute;
+  right: -100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #999;
   transition: all 0.3s ease;
 }
 
-.level-circle[data-level="junior"] { width: 70px; height: 70px; font-size: 0.8rem; }
-.level-circle[data-level="mid"]    { width: 90px; height: 90px; font-size: 0.9rem; }
-.level-circle[data-level="senior"] { width: 110px; height: 110px; font-size: 1rem; }
-
-.level-circle ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  text-align: center;
+.level-label.active {
+  color: #F18657;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
-.connection-line {
-  width: 2px;
-  height: 60px;
-  background: #223E92;
+.level-row[data-nivel="0"] + .level-label {
+  top: 0;
+}
+
+.level-row[data-nivel="1"] + .level-label {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.level-row[data-nivel="2"] + .level-label {
+  top: auto;
+  bottom: 0;
+}
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .levels-schema-wrapper {
+    overflow-x: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .level-label {
+    position: static;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
 }
