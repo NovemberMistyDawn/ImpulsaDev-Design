@@ -28,26 +28,44 @@ body {
 .volver-btn:hover { text-decoration: underline; }
 
 
+/* Botón volver */
+#detalle-container > a:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #223E92;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+#detalle-container > a:first-child:hover { 
+  text-decoration: underline; 
+}
+
 /* Encabezado (texto + imagen) */
 .detalle-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 .detalle-texto {
   flex: 1;
 }
 .detalle-texto h1 {
   color: #2A327B;
-  font-size: 2.4rem;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
 }
-.detalle-texto .descripcion {
-  color: #333;
-  font-size: 1.05rem;
-  margin-bottom: 1rem;
+.detalle-texto > p {
+  color: #2A327B;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 .detalle-texto .rango-salarial {
   background: #EDF3FC;
@@ -61,7 +79,7 @@ body {
   margin-top: 1rem;
 }
 .detalle-imagen img {
-  max-width: 220px;
+  max-width: 280px;
   height: auto;
 }
 
