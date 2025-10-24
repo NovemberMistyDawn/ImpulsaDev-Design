@@ -24,59 +24,74 @@ async function cargarDetallePuesto() {
     console.log("🟢 Detalle del puesto recibido:", data);
 
     // Pintamos el puesto
+    
     container.innerHTML = `
+     <a href="/">← Volver al buscador</a>
+
+     <div class="detalle-header">
+      <div class="detalle-texto">
       <h1>${data.nombre || data.puesto_nombre || "Puesto sin nombre"}</h1>
       <p>${data.descripcion || data.puesto_descripcion || "Sin descripción disponible."}</p>
+ </div>
+      <div class="detalle-imagen">
+      <img src="/img/Puestos_ilustration-01.png" alt="Desarrollador web">
+    </div>
+    </div>
 
-      <div class="card-grid">
-        <div class="card">
-          <h2>Soft Skills</h2>
-          <ul id="softskills-list">
-            ${(data.cualidades || [])
-              .map(skill => `
-                <li>
-                  <button class="skill-toggle" data-skill="${skill.trim()}">
-                    ${skill.trim()} ▼
-                  </button>
-                  <div class="skill-desc"></div>
-                </li>
-              `)
-              .join("")}
-          </ul>
-        </div>
 
-        <div class="card">
-          <h2>Conocimientos</h2>
-          <ul>
-            ${(data.conocimientos || [])
-              .map(item => `
-                <li>
-                  <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(item.trim())}">
-    ${item.trim()} →
-  </a>
-                </li>
-              `)
-              .join("")}
-          </ul>
-        </div>
 
-        <div class="card">
-          <h2>Itinerarios Funcionales</h2>
-          <ul>
-            ${(data.itinerarios || [])
-              .map(it => `
-                <li>
-                  <a href="/detalle-itinerario.html?nombre=${encodeURIComponent(it.trim())}">
-                    ${it.trim()} →
-                  </a>
-                </li>
-              `)
-              .join("")}
-          </ul>
-        </div>
-      </div>
+    <div class="detalle-secciones">
+  <!-- 🧭 Itinerarios -->
+  <section class="bloque itinerarios">
+    <h2><img src="icons/itinerarios.svg" alt=""> Itinerarios</h2>
+    <div class="itinerarios-grid">
+      ${(data.itinerarios || [])
+        .map(it => `
+          <div class="itinerario-card">
+            <h3>${it.nombre || it.trim()}</h3>
+            <p>${it.descripcion || "Sin descripción disponible."}</p>
+            <a href="/detalle-itinerario.html?nombre=${encodeURIComponent(it.nombre || it.trim())}" class="btn-info">
+              Info →
+            </a>
+          </div>
+        `)
+        .join("")}
+    </div>
+  </section>
 
-      <a href="/">← Volver al buscador</a>
+  <!-- 💬 Soft Skills -->
+  <section class="bloque softskills">
+    <h2><img src="icons/softskills.svg" alt=""> Soft Skills</h2>
+    <ul id="softskills-list">
+      ${(data.cualidades || [])
+        .map(skill => `
+          <li>
+            <button class="skill-toggle" data-skill="${skill.trim()}">
+              ${skill.trim()} ▼
+            </button>
+            <div class="skill-desc"></div>
+          </li>
+        `)
+        .join("")}
+    </ul>
+  </section>
+
+  <!-- 📘 Conocimientos -->
+  <section class="bloque conocimientos">
+    <h2><img src="icons/conocimientos.svg" alt=""> Conocimientos</h2>
+    <ul>
+      ${(data.conocimientos || [])
+        .map(item => `
+          <li>
+            <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(item.trim())}">
+              ${item.trim()} →
+            </a>
+          </li>
+        `)
+        .join("")}
+    </ul>
+  </section>
+</div>
     `;
 
     // Añadir interactividad a los botones de Soft Skills

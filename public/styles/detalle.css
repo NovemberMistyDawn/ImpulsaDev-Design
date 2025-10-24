@@ -15,10 +15,158 @@ body {
 }
 
 
+/* Botón volver */
+.volver-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #223E92;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.volver-btn:hover { text-decoration: underline; }
 
 
+/* Encabezado (texto + imagen) */
+.detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+.detalle-texto {
+  flex: 1;
+}
+.detalle-texto h1 {
+  color: #2A327B;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+.detalle-texto .descripcion {
+  color: #333;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+.detalle-texto .rango-salarial {
+  background: #EDF3FC;
+  color: #223E92;
+  border-radius: 50px;
+  padding: .6rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.detalle-imagen img {
+  max-width: 220px;
+  height: auto;
+}
+
+/* Secciones inferiores */
+.detalle-secciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
 /* ====== NAVBAR ====== */
 
+/* Itinerarios */
+.itinerarios-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.itinerario-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 2px solid #BACDEC;
+  padding: 1rem 1.2rem;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform .2s;
+}
+.itinerario-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.btn-info {
+  display: inline-block;
+  background: #F18657;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+.btn-info:hover { background: #E67347; }
+
+/* Soft skills acordeón */
+#softskills-list li {
+  background: #fff;
+  border: 1px solid #BACDEC;
+  border-radius: 10px;
+  margin-bottom: .8rem;
+  overflow: hidden;
+}
+.skill-toggle {
+  background: #EDF3FC;
+  border: none;
+  color: #223E92;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  padding: .8rem 1rem;
+  cursor: pointer;
+}
+.skill-desc {
+  background: #F9FBFF;
+  padding: .8rem 1rem;
+  font-size: .95rem;
+  display: none;
+}
+.skill-desc.active { display: block; }
+
+/* Conocimientos */
+.conocimientos ul {
+  list-style: none;
+  padding: 0;
+}
+.conocimientos li {
+  background: #fff;
+  border: 1px solid #BACDEC;
+  margin-bottom: .6rem;
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  transition: all .2s;
+}
+.conocimientos li:hover {
+  background: #BACDEC;
+  color: #fff;
+}
+.conocimientos a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Iconos de títulos */
+.bloque h2 {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: #2A327B;
+  font-size: 1.3rem;
+}
+.bloque h2 img {
+  width: 24px;
+  height: 24px;
+}
 
 /* ====== CONTENEDOR PRINCIPAL ====== */
 main {
