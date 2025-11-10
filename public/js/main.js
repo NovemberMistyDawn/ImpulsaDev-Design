@@ -1,6 +1,6 @@
 async function cargarPuestos() {
   try {
-    const res = await fetch("https://impulsadev-design-production.up.railway.app/api/puestos");
+    const res = await fetch("https://impulsadev-design.onrender.com/api/puestos");
     const puestos = await res.json();
 
     const container = document.getElementById("jobs-container");
