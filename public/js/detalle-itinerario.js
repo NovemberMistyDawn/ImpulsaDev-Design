@@ -18,13 +18,6 @@ async function cargarDetalleItinerario() {
 
     const data = await res.json();
 
-    // Generamos los niveles
-    const niveles = {
-      0: 'Sin orden',
-      1: 'Orden 1',
-      2: 'Orden 2'
-    };
-
     // Agrupamos conocimientos por nivel
     const conocimientosPorNivel = {};
     (data.conocimientos || []).forEach(c => {
@@ -34,97 +27,94 @@ async function cargarDetalleItinerario() {
     });
 
     container.innerHTML = `
-      <div class="card-grid">
+      <a href="/">← Volver al buscador</a>
 
-        <!-- Card principal -->
-        <div class="card">
+      <div class="page-header">
+        <div class="page-header-text">
           <h1>${data.nombre}</h1>
           <p>${data.descripcion || "Sin descripción disponible."}</p>
         </div>
-
-      
-
- <!-- Esquema de conocimientos -->
-        <div class="card card-conocimientos">
-          <div class="card-header">
-            <span class="icon">📚</span>
-            <h2>Conocimientos</h2>
-          </div>
-          <p class="card-subtitle">Pulsa en un nivel de conocimiento a continuación para ver más detalle.</p>
-          
-          <div class="levels-schema-wrapper">
-            <div class="levels-schema">
-              <!-- Línea vertical central -->
-              <div class="vertical-line"></div>
-              
-              ${[0, 1, 2].map(nivel => {
-                const conocimientos = conocimientosPorNivel[nivel] || [];
-                const mitad = Math.ceil(conocimientos.length / 2);
-                const izquierda = conocimientos.slice(0, mitad);
-                const derecha = conocimientos.slice(mitad);
-                
-                return `
-                  <div class="level-row" data-nivel="${nivel}">
-                    <!-- Conocimientos izquierda -->
-                    <div class="knowledge-branches knowledge-left">
-                      ${izquierda.map(c => `
-                        <div class="knowledge-item">
-                          <a href="/detalle-conocimiento?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
-                            <span class="icon-tech">🔧</span>
-                            ${c.nombre}
-                            <span class="arrow">→</span>
-                          </a>
-                        </div>
-                      `).join('')}
-                    </div>
-                    
-                    <!-- Círculo central -->
-                    <button class="level-circle" data-nivel="${nivel}">
-                      ${nivel}
-                    </button>
-                    
-                    <!-- Conocimientos derecha -->
-                    <div class="knowledge-branches knowledge-right">
-                      ${derecha.map(c => `
-                        <div class="knowledge-item">
-                          <a href="/detalle-conocimiento?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
-                            <span class="icon-tech">🔧</span>
-                            ${c.nombre}
-                            <span class="arrow">→</span>
-                          </a>
-                        </div>
-                      `).join('')}
-                    </div>
-                  </div>
-                `;
-              }).join('')}
-            </div>
-          </div>
+        <div class="page-header-image">
+          <img src="/img/Puestos_ilustration-01.png" alt="${data.nombre}">
         </div>
-
-
-
-
-        <!-- Card de puestos -->
-        <div class="card">
-          <h2>Puestos relacionados</h2>
-          <ul>
-            ${(data.puestos || []).map(
-              p => `<li><a class="btn" href="/detalle-puesto?id=${encodeURIComponent(p.id)}">${p.nombre} →</a></li>`
-            ).join('')}
-          </ul>
-        </div>
-
       </div>
 
-      <div style="margin-top: 1.5rem;">
-        <a class="btn" href="/">← Volver al buscador</a>
+      <div class="two-column-layout">
+        <!-- Columna izquierda: Conocimientos -->
+        <div class="column-left">
+          <section class="section-block">
+            <h2><img src="icons/conocimientos.svg" alt=""> Conocimientos</h2>
+            <p class="section-subtitle">Pulsa en un nivel de conocimiento a continuación para ver más detalle.</p>
+            
+            <div class="levels-schema-wrapper">
+              <div class="levels-schema">
+                <div class="vertical-line"></div>
+                
+                ${[0, 1, 2].map(nivel => {
+                  const conocimientos = conocimientosPorNivel[nivel] || [];
+                  const mitad = Math.ceil(conocimientos.length / 2);
+                  const izquierda = conocimientos.slice(0, mitad);
+                  const derecha = conocimientos.slice(mitad);
+                  
+                  return `
+                    <div class="level-row" data-nivel="${nivel}">
+                      <div class="knowledge-branches knowledge-left">
+                        ${izquierda.map(c => `
+                          <div class="knowledge-item">
+                            <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
+                              <span class="icon-tech">🔧</span>
+                              ${c.nombre}
+                              <span class="arrow">→</span>
+                            </a>
+                          </div>
+                        `).join('')}
+                      </div>
+                      
+                      <button class="level-circle" data-nivel="${nivel}">
+                        ${nivel}
+                      </button>
+                      
+                      <div class="knowledge-branches knowledge-right">
+                        ${derecha.map(c => `
+                          <div class="knowledge-item">
+                            <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
+                              <span class="icon-tech">🔧</span>
+                              ${c.nombre}
+                              <span class="arrow">→</span>
+                            </a>
+                          </div>
+                        `).join('')}
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Columna derecha: Puestos -->
+        <div class="column-right">
+          <section class="section-block">
+            <h2><img src="icons/puestos.svg" alt=""> Puestos de trabajo</h2>
+            <div class="cards-row cards-vertical">
+              ${(data.puestos || []).map(p => `
+                <div class="info-card">
+                  <h3>${p.nombre}</h3>
+                  <p>${p.descripcion || "Sin descripción disponible."}</p>
+                  <a href="/detalle-puesto.html?id=${encodeURIComponent(p.id)}" class="btn-primary">
+                    Info →
+                  </a>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+        </div>
       </div>
     `;
 
     // Inicializar interactividad
     initLevelsInteraction();
-
 
   } catch (error) {
     container.textContent = 'Error cargando la información del itinerario.';
@@ -132,16 +122,14 @@ async function cargarDetalleItinerario() {
   }
 }
 
-
 function initLevelsInteraction() {
   const circles = document.querySelectorAll('.level-circle');
   const rows = document.querySelectorAll('.level-row');
-  let selectedLevel = 1; // Mid por defecto
+  let selectedLevel = 1;
 
   function activateLevel(nivel) {
     selectedLevel = nivel;
     
-    // Actualizar círculos
     circles.forEach(circle => {
       const circleNivel = parseInt(circle.dataset.nivel);
       if (circleNivel === nivel) {
@@ -151,7 +139,6 @@ function initLevelsInteraction() {
       }
     });
     
-    // Mostrar/ocultar ramas
     rows.forEach(row => {
       const rowNivel = parseInt(row.dataset.nivel);
       const branches = row.querySelectorAll('.knowledge-branches');
@@ -168,7 +155,6 @@ function initLevelsInteraction() {
     });
   }
 
-  // Event listeners
   circles.forEach(circle => {
     circle.addEventListener('click', () => {
       const nivel = parseInt(circle.dataset.nivel);
@@ -176,9 +162,7 @@ function initLevelsInteraction() {
     });
   });
 
-  // Activar nivel inicial
   activateLevel(selectedLevel);
 }
 
-// Iniciar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', cargarDetalleItinerario);
