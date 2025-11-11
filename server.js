@@ -119,9 +119,27 @@ CREATE TABLE IF NOT EXISTS itinerario_conocimiento (
       console.log("🌱 Insertando datos iniciales...");
       await db.exec(`
         INSERT INTO puestos (nombre, descripcion) VALUES
-          ('Frontend Developer', 'Crea interfaces web modernas'),
-          ('Backend Developer', 'Desarrolla APIs y lógica del servidor'),
-          ('Data Analyst', 'Analiza y visualiza datos');
+         (
+    'Frontend Developer',
+    'Profesional especializado en la creación de interfaces web interactivas y visualmente atractivas. 
+     Utiliza lenguajes como HTML, CSS y JavaScript junto con frameworks modernos como React, Vue o Angular 
+     para desarrollar experiencias digitales accesibles, rápidas y adaptadas a distintos dispositivos. 
+     Colabora estrechamente con diseñadores UX/UI y equipos de backend para garantizar la mejor experiencia de usuario posible.'
+  ),
+  (
+    'Backend Developer',
+    'Encargado de construir la lógica, las bases de datos y los servicios que sustentan las aplicaciones web. 
+     Trabaja con lenguajes como Python, Java, Node.js o PHP para desarrollar APIs seguras, escalables y eficientes. 
+     Se asegura de que los datos fluyan correctamente entre el servidor, las aplicaciones y los usuarios, 
+     implementando autenticación, seguridad y optimización del rendimiento en el lado del servidor.'
+  ),
+  (
+    'Data Analyst',
+    'Profesional dedicado a recopilar, limpiar y analizar grandes volúmenes de datos con el objetivo de 
+     obtener información útil para la toma de decisiones. Utiliza herramientas como SQL, Python, Excel o Power BI 
+     para crear informes, dashboards e insights basados en datos. Combina pensamiento analítico con 
+     habilidades de comunicación para transformar los datos en conocimiento estratégico que impulse el negocio.'
+  );
 
 
       INSERT INTO cualidades (nombre, descripcion) VALUES
