@@ -36,7 +36,7 @@ async function cargarDetallePuesto() {
     <div class="sections-container">
       <!-- 🧭 Itinerarios - Ancho completo arriba -->
       <section class="section-block section-full-width">
-        <h2><img src="icons/itinerarios.svg" alt=""> Itinerarios</h2>
+        <h2><img src="/img/itinerarios.png" alt=""> Itinerarios</h2>
         <div class="cards-horizontal">
           ${(data.itinerarios || [])
             .map(it => `
@@ -56,7 +56,7 @@ async function cargarDetallePuesto() {
       <div class="two-columns-bottom">
         <!-- 💬 Soft Skills -->
         <section class="section-block">
-          <h2><img src="icons/softskills.svg" alt=""> Soft Skills</h2>
+          <h2><img src="/img/softskills.png" alt=""> Soft Skills</h2>
           <ul class="interactive-list">
             ${(data.cualidades || [])
               .map(skill => `
@@ -73,7 +73,7 @@ async function cargarDetallePuesto() {
 
         <!-- 📘 Conocimientos -->
         <section class="section-block">
-          <h2><img src="icons/conocimientos.svg" alt=""> Conocimientos</h2>
+          <h2><img src="/img/conocimientos.png" alt=""> Conocimientos</h2>
           <ul class="link-list">
             ${(data.conocimientos || [])
               .map(item => `

@@ -35,7 +35,7 @@ async function cargarDetalleItinerario() {
           <p>${data.descripcion || "Sin descripción disponible."}</p>
         </div>
         <div class="page-header-image">
-          <img src="/img/Puestos_ilustration-01.png" alt="${data.nombre}">
+          <img src="/img/itinerario_ilustration-01-01.png" alt="${data.nombre}">
         </div>
       </div>
 
@@ -43,7 +43,7 @@ async function cargarDetalleItinerario() {
         <!-- Columna izquierda: Conocimientos -->
         <div class="column-left">
           <section class="section-block">
-            <h2><img src="icons/conocimientos.svg" alt=""> Conocimientos</h2>
+            <h2><img src="/img/conocimientos.png" alt=""> Conocimientos</h2>
             <p class="section-subtitle">Pulsa en un nivel de conocimiento a continuación para ver más detalle.</p>
             
             <div class="levels-schema-wrapper">
@@ -96,7 +96,7 @@ async function cargarDetalleItinerario() {
         <!-- Columna derecha: Puestos -->
         <div class="column-right">
           <section class="section-block">
-            <h2><img src="icons/puestos.svg" alt=""> Puestos de trabajo</h2>
+            <h2><img src="/img/puestos.png" alt=""> Puestos de trabajo</h2>
             <div class="cards-row cards-two-columns">
               ${(data.puestos || []).map(p => `
                 <div class="info-card">

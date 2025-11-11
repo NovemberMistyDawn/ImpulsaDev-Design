@@ -35,7 +35,7 @@ async function cargarDetalleConocimiento() {
         <!-- Columna izquierda: Itinerarios -->
         <div class="column-left">
           <section class="section-block">
-            <h2><img src="icons/itinerarios.svg" alt=""> Itinerarios</h2>
+            <h2><img src="/img/itinerarios.png" alt=""> Itinerarios</h2>
             <div class="cards-row cards-vertical">
               ${(data.itinerarios || []).map(it => `
                 <div class="info-card">
@@ -53,7 +53,7 @@ async function cargarDetalleConocimiento() {
         <!-- Columna derecha: Puestos de trabajo -->
         <div class="column-right">
           <section class="section-block">
-            <h2><img src="icons/puestos.svg" alt=""> Puestos de trabajo</h2>
+            <h2><img src="/img/puestos.png" alt=""> Puestos de trabajo</h2>
             <div class="cards-row cards-vertical">
               ${(data.puestos || []).map(p => `
                 <div class="info-card">
