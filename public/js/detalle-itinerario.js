@@ -97,7 +97,7 @@ async function cargarDetalleItinerario() {
         <div class="column-right">
           <section class="section-block">
             <h2><img src="icons/puestos.svg" alt=""> Puestos de trabajo</h2>
-            <div class="cards-row cards-vertical">
+            <div class="cards-row cards-two-columns">
               ${(data.puestos || []).map(p => `
                 <div class="info-card">
                   <h3>${p.nombre}</h3>

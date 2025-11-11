@@ -34,10 +34,10 @@ async function cargarDetallePuesto() {
     </div>
 
     <div class="sections-container">
-      <!-- 🧭 Itinerarios -->
-      <section class="section-block">
+      <!-- 🧭 Itinerarios - Ancho completo arriba -->
+      <section class="section-block section-full-width">
         <h2><img src="icons/itinerarios.svg" alt=""> Itinerarios</h2>
-        <div class="cards-row">
+        <div class="cards-horizontal">
           ${(data.itinerarios || [])
             .map(it => `
               <div class="info-card">
@@ -52,38 +52,41 @@ async function cargarDetallePuesto() {
         </div>
       </section>
 
-      <!-- 💬 Soft Skills -->
-      <section class="section-block">
-        <h2><img src="icons/softskills.svg" alt=""> Soft Skills</h2>
-        <ul class="interactive-list">
-          ${(data.cualidades || [])
-            .map(skill => `
-              <li>
-                <button class="toggle-btn" data-skill="${skill.trim()}">
-                  ${skill.trim()} ▼
-                </button>
-                <div class="toggle-content"></div>
-              </li>
-            `)
-            .join("")}
-        </ul>
-      </section>
+      <!-- Dos columnas abajo: Soft Skills y Conocimientos -->
+      <div class="two-columns-bottom">
+        <!-- 💬 Soft Skills -->
+        <section class="section-block">
+          <h2><img src="icons/softskills.svg" alt=""> Soft Skills</h2>
+          <ul class="interactive-list">
+            ${(data.cualidades || [])
+              .map(skill => `
+                <li>
+                  <button class="toggle-btn" data-skill="${skill.trim()}">
+                    ${skill.trim()}
+                  </button>
+                  <div class="toggle-content"></div>
+                </li>
+              `)
+              .join("")}
+          </ul>
+        </section>
 
-      <!-- 📘 Conocimientos -->
-      <section class="section-block">
-        <h2><img src="icons/conocimientos.svg" alt=""> Conocimientos</h2>
-        <ul class="link-list">
-          ${(data.conocimientos || [])
-            .map(item => `
-              <li>
-                <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(item.trim())}">
-                  ${item.trim()}
-                </a>
-              </li>
-            `)
-            .join("")}
-        </ul>
-      </section>
+        <!-- 📘 Conocimientos -->
+        <section class="section-block">
+          <h2><img src="icons/conocimientos.svg" alt=""> Conocimientos</h2>
+          <ul class="link-list">
+            ${(data.conocimientos || [])
+              .map(item => `
+                <li>
+                  <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(item.trim())}">
+                    ${item.trim()}
+                  </a>
+                </li>
+              `)
+              .join("")}
+          </ul>
+        </section>
+      </div>
     </div>
     `;
 
@@ -99,10 +102,22 @@ async function cargarDetallePuesto() {
         // Si ya está desplegado, colapsamos
         if (descDiv.classList.contains("active")) {
           descDiv.classList.remove("active");
+          btn.classList.remove("active");
           descDiv.innerHTML = "";
-          btn.innerHTML = `${skillName} ▼`;
           return;
         }
+
+        // Cerrar otros desplegables abiertos
+        buttons.forEach(otherBtn => {
+          if (otherBtn !== btn) {
+            otherBtn.classList.remove("active");
+            const otherDesc = otherBtn.nextElementSibling;
+            if (otherDesc) {
+              otherDesc.classList.remove("active");
+              otherDesc.innerHTML = "";
+            }
+          }
+        });
 
         // Llamar al backend para obtener la descripción
         try {
@@ -113,10 +128,12 @@ async function cargarDetallePuesto() {
 
           descDiv.innerHTML = `<p>${data.cualidad_descripcion || "Sin descripción disponible."}</p>`;
           descDiv.classList.add("active");
-          btn.innerHTML = `${skillName} ▲`;
+          btn.classList.add("active");
         } catch (err) {
           console.error("Error al cargar descripción de skill:", err);
           descDiv.innerHTML = `<p style="color:red;">Error cargando la descripción.</p>`;
+          descDiv.classList.add("active");
+          btn.classList.add("active");
         }
       });
     });

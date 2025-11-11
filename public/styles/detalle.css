@@ -143,12 +143,22 @@ main {
 }
 
 /* ====== LAYOUTS ====== */
-/* Layout de una columna (página de puesto) */
+/* Layout de página de puesto: Itinerarios arriba (ancho completo) + 2 columnas abajo */
 .sections-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
+}
+
+.section-full-width {
+  width: 100%;
+}
+
+.two-columns-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 /* Layout de dos columnas (páginas de itinerario y conocimiento) */
@@ -157,6 +167,11 @@ main {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-top: 2rem;
+}
+
+/* Layout especial para conocimiento: full width arriba + 2 columnas abajo */
+.full-width-top {
+  grid-column: 1 / -1;
 }
 
 .column-left,
@@ -197,33 +212,37 @@ main {
 
 /* ====== GRID DE CARDS ====== */
 .cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Variante para mostrar en 2 columnas fijas */
+.cards-two-columns {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Variante horizontal para itinerarios */
+.cards-horizontal {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-}
-
-/* Variante vertical para columnas */
-.cards-vertical {
-  flex-direction: column;
-  flex-wrap: nowrap;
 }
 
 .info-card {
   background: #fff;
   border-radius: 12px;
   border: 2px solid #BACDEC;
-  padding: 1rem;
+  padding: 1.2rem 1rem;
   box-shadow: none;
   transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
 }
 
-.cards-row:not(.cards-vertical) .info-card {
+.cards-horizontal .info-card {
   width: 200px;
   flex-shrink: 0;
-}
-
-.cards-vertical .info-card {
-  width: 100%;
 }
 
 .info-card:hover {
@@ -244,6 +263,7 @@ main {
   font-size: 0.85rem;
   line-height: 1.4;
   margin-bottom: 0.7rem;
+  flex-grow: 1;
 }
 
 .btn-primary {
@@ -254,11 +274,12 @@ main {
   color: white;
   text-decoration: none;
   border-radius: 20px;
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  margin-top: 0.3rem;
+  margin-top: auto;
   transition: background 0.2s;
+  align-self: flex-start;
 }
 
 .btn-primary:hover {
@@ -274,62 +295,86 @@ main {
 
 .interactive-list li {
   background: #fff;
-  border: 1px solid #BACDEC;
   border-radius: 10px;
-  margin-bottom: .7rem;
+  margin-bottom: .8rem;
   overflow: hidden;
+  position: relative;
 }
 
-/* Lista con botones toggle (soft skills) */
+/* Lista con botones toggle (soft skills) - diseño con línea azul y flecha naranja */
 .toggle-btn {
   background: transparent;
   border: none;
+  border-left: 3px solid #7692CB;
   color: #7692CB;
   font-weight: 600;
   font-size: 0.95rem;
   width: 100%;
   text-align: left;
-  padding: .9rem 1.1rem;
+  padding: 1rem 1.1rem;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-btn::after {
+  content: '▼';
+  color: #F18657;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn.active::after {
+  transform: rotate(180deg);
 }
 
 .toggle-btn:hover {
-  color: #F18657;
+  color: #223E92;
+  border-left-color: #223E92;
+  background: #F9FBFF;
 }
 
 .toggle-content {
   background: #fff;
   padding: 0 1.1rem 1rem 1.1rem;
+  margin-left: 3px;
   font-size: .9rem;
   color: #223E92;
-  line-height: 1.5;
-  display: none;
+  line-height: 1.6;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
 }
 
 .toggle-content.active {
-  display: block;
+  max-height: 500px;
+  opacity: 1;
+  padding: 0 1.1rem 1rem 1.5rem;
 }
 
-/* Lista con enlaces (conocimientos) */
+/* Lista con enlaces (conocimientos) - cada uno en su fondo blanco con flecha azul */
 .link-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .link-list li {
   background: #fff;
-  border: 1px solid #BACDEC;
-  margin-bottom: .7rem;
   border-radius: 10px;
-  padding: 0;
   transition: all .2s;
+  overflow: hidden;
 }
 
 .link-list li:hover {
-  background: #EDF3FC;
-  border-color: #7692CB;
+  transform: translateX(3px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .link-list a {
@@ -338,15 +383,18 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .9rem 1.1rem;
+  padding: 1rem 1.2rem;
   font-weight: 600;
   font-size: 0.95rem;
+  transition: color 0.2s;
 }
 
 .link-list a::after {
   content: '→';
   color: #7692CB;
   font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
 }
 
 .link-list li:hover a {
@@ -355,6 +403,7 @@ main {
 
 .link-list li:hover a::after {
   color: #223E92;
+  transform: translateX(3px);
 }
 
 /* ====== GRID GENÉRICO DE CARDS (para páginas de conocimiento/itinerario) ====== */
@@ -485,6 +534,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  align-items: center;
 }
 
 .vertical-line {
@@ -492,8 +542,8 @@ main {
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: #223E92;
+  width: 3px;
+  background: #7692CB;
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -512,14 +562,14 @@ main {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #223E92;
+  background: #7692CB;
   color: white;
   font-weight: 700;
   font-size: 1.2rem;
-  border: none;
+  border: 4px solid #F2F6FC;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(34, 62, 146, 0.3);
+  box-shadow: 0 4px 12px rgba(118, 146, 203, 0.3);
   position: relative;
   z-index: 10;
   display: flex;
@@ -529,13 +579,14 @@ main {
 
 .level-circle:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(34, 62, 146, 0.4);
+  box-shadow: 0 6px 16px rgba(118, 146, 203, 0.4);
 }
 
 .level-circle.active {
   background: #F18657;
+  border-color: #F2F6FC;
   transform: scale(1.2);
-  box-shadow: 0 8px 25px rgba(241, 134, 87, 0.5);
+  box-shadow: 0 8px 20px rgba(241, 134, 87, 0.4);
 }
 
 .level-row[data-nivel="0"] .level-circle {
@@ -696,11 +747,16 @@ main {
     max-width: 200px;
   }
   
-  .two-column-layout {
+  .two-column-layout,
+  .two-columns-bottom {
     grid-template-columns: 1fr;
   }
   
-  .cards-row:not(.cards-vertical) {
+  .cards-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards-horizontal {
     justify-content: center;
   }
   
