@@ -118,28 +118,47 @@ CREATE TABLE IF NOT EXISTS itinerario_conocimiento (
     if (count.c === 0) {
       console.log("🌱 Insertando datos iniciales...");
       await db.exec(`
-        INSERT INTO puestos (nombre, descripcion) VALUES
-         (
-    'Frontend Developer',
-    'Profesional especializado en la creación de interfaces web interactivas y visualmente atractivas. 
-     Utiliza lenguajes como HTML, CSS y JavaScript junto con frameworks modernos como React, Vue o Angular 
-     para desarrollar experiencias digitales accesibles, rápidas y adaptadas a distintos dispositivos. 
-     Colabora estrechamente con diseñadores UX/UI y equipos de backend para garantizar la mejor experiencia de usuario posible.'
-  ),
-  (
-    'Backend Developer',
-    'Encargado de construir la lógica, las bases de datos y los servicios que sustentan las aplicaciones web. 
-     Trabaja con lenguajes como Python, Java, Node.js o PHP para desarrollar APIs seguras, escalables y eficientes. 
-     Se asegura de que los datos fluyan correctamente entre el servidor, las aplicaciones y los usuarios, 
-     implementando autenticación, seguridad y optimización del rendimiento en el lado del servidor.'
-  ),
-  (
-    'Data Analyst',
-    'Profesional dedicado a recopilar, limpiar y analizar grandes volúmenes de datos con el objetivo de 
-     obtener información útil para la toma de decisiones. Utiliza herramientas como SQL, Python, Excel o Power BI 
-     para crear informes, dashboards e insights basados en datos. Combina pensamiento analítico con 
-     habilidades de comunicación para transformar los datos en conocimiento estratégico que impulse el negocio.'
-  );
+       INSERT INTO puestos (id, nombre, descripcion) VALUES (1, 'Desarrollador/a Front-End', 'Crea la parte visual de las aplicaciones web usando HTML, CSS y JavaScript.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (2, 'Desarrollador/a Back-End', 'Diseña la lógica, bases de datos y servidores que hacen funcionar las aplicaciones.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (3, 'Desarrollador/a Full-Stack', 'Combina las habilidades de front-end y back-end para crear aplicaciones completas.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (4, 'Ingeniero/a de Software', 'Diseña, desarrolla y mantiene sistemas y aplicaciones informáticas complejas.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (5, 'Desarrollador/a Mobile', 'Crea aplicaciones para dispositivos móviles Android o iOS.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (6, 'Desarrollador/a de Videojuegos', 'Diseña y programa videojuegos, incluyendo la mecánica, gráficos e interacción.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (7, 'Administrador/a de Sistemas', 'Configura y mantiene servidores, redes y sistemas operativos.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (8, 'Ingeniero/a DevOps', 'Integra desarrollo y operaciones para automatizar despliegues y mejorar la eficiencia.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (9, 'Arquitecto/a de Sistemas', 'Diseña la estructura tecnológica de una organización o proyecto.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (10, 'Especialista en Cloud Computing', 'Gestiona servicios en la nube y optimiza recursos en plataformas como AWS o Azure.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (11, 'Analista de Seguridad Informática', 'Monitorea sistemas en busca de amenazas y vulnerabilidades.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (12, 'Ingeniero/a en Ciberseguridad', 'Implementa soluciones de seguridad, cifrado y políticas de protección.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (13, 'Pentester / Hacker Ético', 'Realiza pruebas de penetración para detectar fallos de seguridad.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (14, 'Consultor/a de Seguridad', 'Asesora a empresas sobre cómo proteger su información y cumplir normativas.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (15, 'Analista de Datos', 'Extrae y analiza datos para generar informes y apoyar la toma de decisiones.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (16, 'Científico/a de Datos', 'Aplica modelos estadísticos e inteligencia artificial para descubrir patrones complejos.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (17, 'Ingeniero/a de Datos', 'Diseña y mantiene infraestructuras de almacenamiento y procesamiento de datos.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (18, 'Especialista en Big Data', 'Gestiona grandes volúmenes de datos usando tecnologías como Hadoop o Spark.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (19, 'Ingeniero/a de Machine Learning', 'Crea modelos predictivos y sistemas de aprendizaje automático.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (20, 'Especialista en Procesamiento del Lenguaje Natural', 'Desarrolla sistemas que entienden y generan lenguaje humano.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (21, 'Investigador/a en Inteligencia Artificial', 'Explora nuevos métodos y algoritmos de inteligencia artificial.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (22, 'Técnico/a en Redes', 'Instala y mantiene redes de datos locales y remotas.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (23, 'Ingeniero/a de Telecomunicaciones', 'Diseña infraestructuras de comunicación como fibra óptica o 5G.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (24, 'Administrador/a de Red', 'Monitorea y gestiona el tráfico y la seguridad de las redes.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (25, 'Técnico/a de Soporte Informático', 'Atiende incidencias de usuarios y resuelve problemas técnicos.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (26, 'Especialista en Help Desk', 'Brinda soporte técnico remoto y seguimiento de incidencias.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (27, 'Gestor/a de Activos TI', 'Controla el inventario de equipos y licencias de software.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (28, 'Jefe/a de Proyecto TIC', 'Planifica, coordina y supervisa proyectos tecnológicos.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (29, 'Chief Information Officer (CIO)', 'Dirige la estrategia tecnológica de una empresa.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (30, 'Chief Technology Officer (CTO)', 'Lidera la innovación técnica y las decisiones de arquitectura tecnológica.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (31, 'Consultor/a Tecnológico', 'Asesora empresas sobre adopción de soluciones TIC.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (32, 'Diseñador/a UX', 'Optimiza la experiencia del usuario en productos digitales.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (33, 'Diseñador/a UI', 'Diseña la apariencia visual de aplicaciones y sitios web.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (34, 'Diseñador/a Multimedia', 'Crea elementos visuales, animaciones o contenidos interactivos.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (35, 'Formador/a TIC', 'Imparte cursos y capacitaciones sobre herramientas tecnológicas.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (36, 'Técnico/a de E-learning', 'Diseña y administra plataformas de educación virtual.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (37, 'Especialista en Blockchain', 'Desarrolla soluciones basadas en cadenas de bloques y criptografía.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (38, 'Ingeniero/a en Robótica', 'Diseña sistemas automatizados y robots inteligentes.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (39, 'Especialista en IoT', 'Conecta dispositivos físicos a redes digitales para automatización y control.');
+INSERT INTO puestos (id, nombre, descripcion) VALUES (40, 'Analista de Automatización / RPA', 'Crea bots que automatizan tareas repetitivas.');
+
 
 
       INSERT INTO cualidades (nombre, descripcion) VALUES
@@ -148,13 +167,52 @@ CREATE TABLE IF NOT EXISTS itinerario_conocimiento (
         ('Comunicación', 'Habilidad para expresar ideas claramente.'),
         ('Adaptabilidad', 'Capacidad para ajustarse a entornos cambiantes.');
 
-         INSERT INTO conocimientos (nombre, descripcion) VALUES
-      ('JavaScript', 'Lenguaje base para desarrollo web frontend.'),
-      ('Python', 'Lenguaje de programación versátil, usado en backend y análisis de datos.'),
-      ('SQL', 'Lenguaje para gestión y consultas a bases de datos.'),
-      ('Linux', 'Sistema operativo común en entornos de servidores.');
+      INSERT INTO conocimientos (id, nombre, descripcion) VALUES (1, 'Python', 'Lenguaje versátil usado en desarrollo web, ciencia de datos, inteligencia artificial y automatización.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (2, 'Java', 'Lenguaje orientado a objetos utilizado en backend empresarial y desarrollo Android.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (3, 'JavaScript', 'Lenguaje fundamental para desarrollo web en el lado del cliente y del servidor.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (4, 'TypeScript', 'Superset de JavaScript que añade tipado estático para mejorar la calidad del código.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (5, 'C#', 'Lenguaje de programación usado en entornos Microsoft, videojuegos y aplicaciones de escritorio.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (6, 'C++', 'Lenguaje de alto rendimiento usado en software de sistemas, juegos y aplicaciones críticas.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (7, 'PHP', 'Lenguaje de programación ampliamente utilizado en desarrollo web y sistemas CMS.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (8, 'SQL', 'Lenguaje de consulta estructurado para gestionar bases de datos relacionales.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (9, 'R', 'Lenguaje especializado en análisis estadístico y visualización de datos.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (10, 'Go (Golang)', 'Lenguaje eficiente desarrollado por Google para backend y sistemas distribuidos.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (11, 'Kotlin', 'Lenguaje moderno para desarrollo Android y multiplataforma.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (12, 'Swift', 'Lenguaje oficial para el desarrollo en iOS y macOS.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (13, 'React', 'Librería JavaScript para crear interfaces de usuario interactivas.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (14, 'Angular', 'Framework front-end de Google para construir aplicaciones web dinámicas.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (15, 'Vue.js', 'Framework progresivo para interfaces web reactivas y modulares.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (16, 'Django', 'Framework de Python para desarrollo web rápido y seguro.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (17, 'Flask', 'Microframework Python para crear aplicaciones web ligeras.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (18, 'Spring Boot', 'Framework Java para construir aplicaciones empresariales modernas.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (19, '.NET Core', 'Plataforma multiplataforma de Microsoft para desarrollo de software.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (20, 'Node.js', 'Entorno de ejecución JavaScript para backend y aplicaciones en tiempo real.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (21, 'Express.js', 'Framework minimalista para construir APIs con Node.js.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (22, 'TensorFlow', 'Librería de aprendizaje automático desarrollada por Google.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (23, 'PyTorch', 'Librería de deep learning muy usada en investigación e IA aplicada.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (24, 'Unity', 'Motor de desarrollo de videojuegos multiplataforma.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (25, 'Unreal Engine', 'Motor gráfico avanzado para videojuegos y simulaciones 3D.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (26, 'MySQL', 'Sistema de gestión de bases de datos relacional de código abierto.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (27, 'PostgreSQL', 'Base de datos relacional avanzada con soporte de tipos personalizados.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (28, 'SQLite', 'Motor de base de datos ligero embebido en muchas aplicaciones.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (29, 'MongoDB', 'Base de datos NoSQL orientada a documentos.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (30, 'Redis', 'Sistema en memoria usado para caché, colas y mensajería.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (31, 'Oracle Database', 'Base de datos empresarial robusta y segura.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (32, 'Docker', 'Plataforma para crear, ejecutar y desplegar aplicaciones en contenedores.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (33, 'Kubernetes', 'Sistema de orquestación de contenedores para despliegue escalable.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (34, 'Git', 'Sistema de control de versiones distribuido para gestionar código fuente.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (35, 'GitHub', 'Plataforma de alojamiento de código y colaboración basada en Git.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (36, 'GitLab', 'Herramienta de DevOps para control de versiones, CI/CD y gestión de proyectos.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (37, 'Bitbucket', 'Plataforma de gestión de repositorios Git con funciones empresariales.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (38, 'Jenkins', 'Servidor de integración continua para automatizar despliegues.');
+INSERT INTO conocimientos (id, nombre, descripcion) VALUES (39, 'AWS', 'Plataforma de servicios en la nube de Amazon.');
+   
 
-    INSERT INTO itinerarios (nombre, descripcion) VALUES
+
+
+
+
+INSERT INTO itinerarios (nombre, descripcion) VALUES
       ('Desarrollo Web', 'Ruta para aprender desarrollo fullstack con JS.'),
       ('Ciencia de Datos', 'Ruta enfocada en análisis, estadística y machine learning.'),
       ('Administración de Sistemas', 'Ruta orientada a redes, servidores y seguridad.');
