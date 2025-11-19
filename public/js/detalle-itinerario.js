@@ -18,14 +18,13 @@ async function cargarDetalleItinerario() {
 
     const data = await res.json();
 
-    // Agrupamos conocimientos por nivel
-    const conocimientosPorNivel = {};
-    (data.conocimientos || []).forEach(c => {
-      const nivel = c.nivel ?? 0;
-      if (!conocimientosPorNivel[nivel]) conocimientosPorNivel[nivel] = [];
-      conocimientosPorNivel[nivel].push(c);
-    });
-
+    // Agrupamos conocimientos por nivel (mapeando 3→0, 4→1, 5→2)
+const conocimientosPorNivel = {};
+(data.conocimientos || []).forEach(c => {
+  const nivel = (c.nivel ?? 0) % 3;
+  if (!conocimientosPorNivel[nivel]) conocimientosPorNivel[nivel] = [];
+  conocimientosPorNivel[nivel].push(c);
+});
     container.innerHTML = `
       <a href="/">← Volver al buscador</a>
 

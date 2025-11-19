@@ -543,6 +543,7 @@ main {
   top: 0;
   bottom: 0;
   width: 3px;
+   height: calc(100% - 40px);
   background: #7692CB;
   transform: translateX(-50%);
   z-index: 1;
