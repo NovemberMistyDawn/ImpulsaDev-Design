@@ -48,47 +48,50 @@ async function cargarDetalleItinerario() {
             
             <div class="levels-schema-wrapper">
               <div class="levels-schema">
-                <div class="vertical-line"></div>
-                
-                ${[0, 1, 2].map(nivel => {
-                  const conocimientos = conocimientosPorNivel[nivel] || [];
-                  const mitad = Math.ceil(conocimientos.length / 2);
-                  const izquierda = conocimientos.slice(0, mitad);
-                  const derecha = conocimientos.slice(mitad);
-                  
-                  return `
-                    <div class="level-row" data-nivel="${nivel}">
-                      <div class="knowledge-branches knowledge-left">
-                        ${izquierda.map(c => `
-                          <div class="knowledge-item">
-                            <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
-                              <span class="icon-tech">🔧</span>
-                              ${c.nombre}
-                              <span class="arrow">→</span>
-                            </a>
-                          </div>
-                        `).join('')}
-                      </div>
-                      
-                      <button class="level-circle" data-nivel="${nivel}">
-                        ${nivel}
-                      </button>
-                      
-                      <div class="knowledge-branches knowledge-right">
-                        ${derecha.map(c => `
-                          <div class="knowledge-item">
-                            <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
-                              <span class="icon-tech">🔧</span>
-                              ${c.nombre}
-                              <span class="arrow">→</span>
-                            </a>
-                          </div>
-                        `).join('')}
-                      </div>
-                    </div>
-                  `;
-                }).join('')}
+  <div class="vertical-line"></div>
+  
+  ${Object.keys(conocimientosPorNivel)
+    .map(n => parseInt(n))
+    .sort((a, b) => a - b)
+    .map(nivel => {
+      const conocimientos = conocimientosPorNivel[nivel] || [];
+      const mitad = Math.ceil(conocimientos.length / 2);
+      const izquierda = conocimientos.slice(0, mitad);
+      const derecha = conocimientos.slice(mitad);
+
+      return `
+        <div class="level-row" data-nivel="${nivel}">
+          <div class="knowledge-branches knowledge-left">
+            ${izquierda.map(c => `
+              <div class="knowledge-item">
+                <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
+                  <span class="icon-tech">🔧</span>
+                  ${c.nombre}
+                  <span class="arrow">→</span>
+                </a>
               </div>
+            `).join('')}
+          </div>
+
+          <button class="level-circle" data-nivel="${nivel}">
+            ${nivel}
+          </button>
+
+          <div class="knowledge-branches knowledge-right">
+            ${derecha.map(c => `
+              <div class="knowledge-item">
+                <a href="/detalle-conocimiento.html?nombre=${encodeURIComponent(c.nombre)}" class="knowledge-btn">
+                  <span class="icon-tech">🔧</span>
+                  ${c.nombre}
+                  <span class="arrow">→</span>
+                </a>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }).join('')}
+</div>
             </div>
           </section>
         </div>
