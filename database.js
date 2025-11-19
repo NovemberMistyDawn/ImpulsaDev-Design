@@ -54,8 +54,11 @@ CREATE TABLE IF NOT EXISTS itinerario_conocimiento (
 CREATE TABLE IF NOT EXISTS puesto_conocimiento (
   id_puesto INTEGER,
   id_conocimiento INTEGER,
-  mca_opcional INTEGER,
-  PRIMARY KEY (id_puesto, id_conocimiento)
+  nivel INTEGER DEFAULT 1,
+  mca_opcional INTEGER DEFAULT 0,
+  PRIMARY KEY (id_puesto, id_conocimiento),
+  FOREIGN KEY(id_puesto) REFERENCES puestos(id),
+  FOREIGN KEY(id_conocimiento) REFERENCES conocimientos(id)
 );
 
 CREATE TABLE IF NOT EXISTS puesto_cualidad (
