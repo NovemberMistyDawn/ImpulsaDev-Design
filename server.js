@@ -84,14 +84,14 @@ let db;
         FOREIGN KEY(cualidad_id) REFERENCES cualidades(id)
       );
 
-     CREATE TABLE IF NOT EXISTS puesto_conocimiento (
-  id_puesto INTEGER,
-  id_conocimiento INTEGER,
+   CREATE TABLE IF NOT EXISTS puesto_conocimiento (
+  puesto_id INTEGER,
+  conocimiento_id INTEGER,
   nivel INTEGER DEFAULT 1,
   mca_opcional INTEGER DEFAULT 0,
-  PRIMARY KEY (id_puesto, id_conocimiento),
-  FOREIGN KEY(id_puesto) REFERENCES puestos(id),
-  FOREIGN KEY(id_conocimiento) REFERENCES conocimientos(id)
+  PRIMARY KEY (puesto_id, conocimiento_id),
+  FOREIGN KEY(puesto_id) REFERENCES puestos(id),
+  FOREIGN KEY(conocimiento_id) REFERENCES conocimientos(id)
 );
 
    CREATE TABLE IF NOT EXISTS puesto_itinerario (
