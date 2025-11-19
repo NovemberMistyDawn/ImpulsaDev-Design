@@ -862,235 +862,233 @@ INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) 
 INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (30, 2, 32, 4);  -- Docker
 INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (31, 2, 38, 3);  -- Jenkins
 
-INSERT INTO itinerario_conocimiento VALUES (10, 3, 3, 5);   -- JavaScript
-INSERT INTO itinerario_conocimiento VALUES (11, 3, 4, 4);   -- TypeScript
-INSERT INTO itinerario_conocimiento VALUES (12, 3, 20, 5);  -- Node.js
-INSERT INTO itinerario_conocimiento VALUES (13, 3, 21, 4);  -- Express.js
-INSERT INTO itinerario_conocimiento VALUES (14, 3, 13, 5);  -- React
-INSERT INTO itinerario_conocimiento VALUES (15, 3, 34, 5);  -- Git
-INSERT INTO itinerario_conocimiento VALUES (16, 3, 27, 4);  -- PostgreSQL
-INSERT INTO itinerario_conocimiento VALUES (17, 3, 32, 3);  -- Docker
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (10, 3, 3, 5);   -- JavaScript
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (11, 3, 4, 4);   -- TypeScript
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (12, 3, 20, 5);  -- Node.js
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (13, 3, 21, 4);  -- Express.js
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (14, 3, 13, 5);  -- React
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (15, 3, 34, 5);  -- Git
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (16, 3, 27, 4);  -- PostgreSQL
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (17, 3, 32, 3);  -- Docker
 
-INSERT INTO itinerario_conocimiento VALUES (10, 3, 3, 5);   -- JavaScript
-INSERT INTO itinerario_conocimiento VALUES (11, 3, 4, 4);   -- TypeScript
-INSERT INTO itinerario_conocimiento VALUES (12, 3, 20, 5);  -- Node.js
-INSERT INTO itinerario_conocimiento VALUES (13, 3, 21, 4);  -- Express.js
-INSERT INTO itinerario_conocimiento VALUES (14, 3, 13, 5);  -- React
-INSERT INTO itinerario_conocimiento VALUES (15, 3, 34, 5);  -- Git
-INSERT INTO itinerario_conocimiento VALUES (16, 3, 27, 4);  -- PostgreSQL
-INSERT INTO itinerario_conocimiento VALUES (17, 3, 32, 3);  -- Docker
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (10, 3, 3, 5);   -- JavaScript
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (11, 3, 4, 4);   -- TypeScript
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (12, 3, 20, 5);  -- Node.js
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (13, 3, 21, 4);  -- Express.js
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (14, 3, 13, 5);  -- React
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (15, 3, 34, 5);  -- Git
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (16, 3, 27, 4);  -- PostgreSQL
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel)  VALUES (17, 3, 32, 3);  -- Docker
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (20, 4, 19, 4);  -- .NET Core
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (21, 4, 8, 5);   -- SQL
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (22, 4, 34, 5);  -- Git
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (23, 4, 66, 3);  -- Scrum
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (24, 5, 11, 5);  -- Kotlin
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (25, 5, 12, 5);  -- Swift
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (26, 5, 3, 4);   -- JavaScript
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (27, 5, 13, 4);  -- React (React Native base)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (28, 5, 55, 3);  -- Figma
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (29, 6, 24, 5);  -- Unity
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (30, 6, 25, 5);  -- Unreal Engine
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (31, 6, 5, 4);   -- C#
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (32, 6, 6, 4);   -- C++
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (33, 6, 58, 3);  -- Illustrator (assets básicos)
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (34, 7, 60, 5);  -- Linux/Unix
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (35, 7, 61, 5);  -- Windows Server
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (36, 7, 78, 4);  -- PowerShell
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (37, 7, 79, 4);  -- Bash
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (38, 7, 65, 3);  -- Active Directory
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (39, 8, 32, 5);  -- Docker
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (40, 8, 33, 5);  -- Kubernetes
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (41, 8, 38, 4);  -- Jenkins
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (42, 8, 42, 4);  -- Terraform
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (43, 8, 39, 3);  -- AWS
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (44, 9, 39, 5);  -- AWS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (45, 9, 40, 4);  -- Azure
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (46, 9, 41, 4);  -- GCP
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (47, 9, 33, 5);  -- Kubernetes
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (48, 9, 32, 4);  -- Docker
+
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (49, 10, 39, 5); -- AWS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (50, 10, 40, 5); -- Azure
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (51, 10, 41, 5); -- GCP
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (52, 10, 42, 4); -- Terraform
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (53, 10, 32, 3); -- Docker
 
 
-INSERT INTO itinerario_conocimiento VALUES (18, 4, 3, 5);   -- JavaScript
-INSERT INTO itinerario_conocimiento VALUES (19, 4, 2, 4);   -- Java
-INSERT INTO itinerario_conocimiento VALUES (20, 4, 19, 4);  -- .NET Core
-INSERT INTO itinerario_conocimiento VALUES (21, 4, 8, 5);   -- SQL
-INSERT INTO itinerario_conocimiento VALUES (22, 4, 34, 5);  -- Git
-INSERT INTO itinerario_conocimiento VALUES (23, 4, 66, 3);  -- Scrum
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (54, 11, 44, 5); -- Wireshark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (55, 11, 46, 4); -- Nmap
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (56, 11, 49, 4); -- Snort
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (57, 11, 47, 3); -- Kali Linux
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (58, 11, 71, 3); -- ITIL
 
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (59, 12, 45, 5); -- Metasploit
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (60, 12, 48, 5); -- Burp Suite
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (61, 12, 47, 4); -- Kali Linux
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (62, 12, 44, 4); -- Wireshark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (63, 12, 62, 3); -- Cisco IOS
 
-INSERT INTO itinerario_conocimiento VALUES (24, 5, 11, 5);  -- Kotlin
-INSERT INTO itinerario_conocimiento VALUES (25, 5, 12, 5);  -- Swift
-INSERT INTO itinerario_conocimiento VALUES (26, 5, 3, 4);   -- JavaScript
-INSERT INTO itinerario_conocimiento VALUES (27, 5, 13, 4);  -- React (React Native base)
-INSERT INTO itinerario_conocimiento VALUES (28, 5, 55, 3);  -- Figma
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (64, 13, 47, 5); -- Kali Linux
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (65, 13, 45, 5); -- Metasploit
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (66, 13, 48, 5); -- Burp Suite
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (67, 13, 46, 4); -- Nmap
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (68, 13, 44, 3); -- Wireshark
 
-INSERT INTO itinerario_conocimiento VALUES (29, 6, 24, 5);  -- Unity
-INSERT INTO itinerario_conocimiento VALUES (30, 6, 25, 5);  -- Unreal Engine
-INSERT INTO itinerario_conocimiento VALUES (31, 6, 5, 4);   -- C#
-INSERT INTO itinerario_conocimiento VALUES (32, 6, 6, 4);   -- C++
-INSERT INTO itinerario_conocimiento VALUES (33, 6, 58, 3);  -- Illustrator (assets básicos)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (69, 14, 71, 5); -- ITIL
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (70, 14, 72, 5); -- COBIT
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (71, 14, 44, 4); -- Wireshark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (72, 14, 47, 3); -- Kali Linux
 
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (73, 15, 52, 5); -- Excel Avanzado
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (74, 15, 50, 5); -- Power BI
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (75, 15, 51, 4); -- Tableau
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (76, 15, 1, 4);  -- Python
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (77, 15, 8, 3);  -- SQL
 
-INSERT INTO itinerario_conocimiento VALUES (34, 7, 60, 5);  -- Linux/Unix
-INSERT INTO itinerario_conocimiento VALUES (35, 7, 61, 5);  -- Windows Server
-INSERT INTO itinerario_conocimiento VALUES (36, 7, 78, 4);  -- PowerShell
-INSERT INTO itinerario_conocimiento VALUES (37, 7, 79, 4);  -- Bash
-INSERT INTO itinerario_conocimiento VALUES (38, 7, 65, 3);  -- Active Directory
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (78, 16, 1, 5);  -- Python
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (79, 16, 22, 5); -- TensorFlow
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (80, 16, 23, 5); -- PyTorch
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (81, 16, 54, 4); -- Spark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (82, 16, 9, 3);  -- R
 
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (83, 17, 54, 5); -- Spark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (84, 17, 28, 4); -- SQLite
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (85, 17, 27, 4); -- PostgreSQL
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (86, 17, 53, 3); -- Jupyter
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (87, 17, 30, 3); -- Redis
 
-INSERT INTO itinerario_conocimiento VALUES (39, 8, 32, 5);  -- Docker
-INSERT INTO itinerario_conocimiento VALUES (40, 8, 33, 5);  -- Kubernetes
-INSERT INTO itinerario_conocimiento VALUES (41, 8, 38, 4);  -- Jenkins
-INSERT INTO itinerario_conocimiento VALUES (42, 8, 42, 4);  -- Terraform
-INSERT INTO itinerario_conocimiento VALUES (43, 8, 39, 3);  -- AWS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (88, 18, 54, 5); -- Spark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (89, 18, 29, 4); -- MongoDB
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (90, 18, 27, 4); -- PostgreSQL
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (91, 18, 39, 3); -- AWS
 
-INSERT INTO itinerario_conocimiento VALUES (44, 9, 39, 5);  -- AWS
-INSERT INTO itinerario_conocimiento VALUES (45, 9, 40, 4);  -- Azure
-INSERT INTO itinerario_conocimiento VALUES (46, 9, 41, 4);  -- GCP
-INSERT INTO itinerario_conocimiento VALUES (47, 9, 33, 5);  -- Kubernetes
-INSERT INTO itinerario_conocimiento VALUES (48, 9, 32, 4);  -- Docker
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (92, 19, 22, 5); -- TensorFlow
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (93, 19, 23, 5); -- PyTorch
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (94, 19, 1, 4);  -- Python
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (95, 19, 54, 4); -- Spark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (96, 19, 53, 3); -- Jupyter
 
-INSERT INTO itinerario_conocimiento VALUES (49, 10, 39, 5); -- AWS
-INSERT INTO itinerario_conocimiento VALUES (50, 10, 40, 5); -- Azure
-INSERT INTO itinerario_conocimiento VALUES (51, 10, 41, 5); -- GCP
-INSERT INTO itinerario_conocimiento VALUES (52, 10, 42, 4); -- Terraform
-INSERT INTO itinerario_conocimiento VALUES (53, 10, 32, 3); -- Docker
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (97, 20, 23, 5); -- PyTorch
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (98, 20, 22, 5); -- TensorFlow
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (99, 20, 1, 4);  -- Python
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (100, 20, 53, 3); -- Jupyter
 
-INSERT INTO itinerario_conocimiento VALUES (54, 11, 44, 5); -- Wireshark
-INSERT INTO itinerario_conocimiento VALUES (55, 11, 46, 4); -- Nmap
-INSERT INTO itinerario_conocimiento VALUES (56, 11, 49, 4); -- Snort
-INSERT INTO itinerario_conocimiento VALUES (57, 11, 47, 3); -- Kali Linux
-INSERT INTO itinerario_conocimiento VALUES (58, 11, 71, 3); -- ITIL
-
-INSERT INTO itinerario_conocimiento VALUES (59, 12, 45, 5); -- Metasploit
-INSERT INTO itinerario_conocimiento VALUES (60, 12, 48, 5); -- Burp Suite
-INSERT INTO itinerario_conocimiento VALUES (61, 12, 47, 4); -- Kali Linux
-INSERT INTO itinerario_conocimiento VALUES (62, 12, 44, 4); -- Wireshark
-INSERT INTO itinerario_conocimiento VALUES (63, 12, 62, 3); -- Cisco IOS
-
-INSERT INTO itinerario_conocimiento VALUES (64, 13, 47, 5); -- Kali Linux
-INSERT INTO itinerario_conocimiento VALUES (65, 13, 45, 5); -- Metasploit
-INSERT INTO itinerario_conocimiento VALUES (66, 13, 48, 5); -- Burp Suite
-INSERT INTO itinerario_conocimiento VALUES (67, 13, 46, 4); -- Nmap
-INSERT INTO itinerario_conocimiento VALUES (68, 13, 44, 3); -- Wireshark
-
-INSERT INTO itinerario_conocimiento VALUES (69, 14, 71, 5); -- ITIL
-INSERT INTO itinerario_conocimiento VALUES (70, 14, 72, 5); -- COBIT
-INSERT INTO itinerario_conocimiento VALUES (71, 14, 44, 4); -- Wireshark
-INSERT INTO itinerario_conocimiento VALUES (72, 14, 47, 3); -- Kali Linux
-
-INSERT INTO itinerario_conocimiento VALUES (73, 15, 52, 5); -- Excel Avanzado
-INSERT INTO itinerario_conocimiento VALUES (74, 15, 50, 5); -- Power BI
-INSERT INTO itinerario_conocimiento VALUES (75, 15, 51, 4); -- Tableau
-INSERT INTO itinerario_conocimiento VALUES (76, 15, 1, 4);  -- Python
-INSERT INTO itinerario_conocimiento VALUES (77, 15, 8, 3);  -- SQL
-
-INSERT INTO itinerario_conocimiento VALUES (78, 16, 1, 5);  -- Python
-INSERT INTO itinerario_conocimiento VALUES (79, 16, 22, 5); -- TensorFlow
-INSERT INTO itinerario_conocimiento VALUES (80, 16, 23, 5); -- PyTorch
-INSERT INTO itinerario_conocimiento VALUES (81, 16, 54, 4); -- Spark
-INSERT INTO itinerario_conocimiento VALUES (82, 16, 9, 3);  -- R
-
-INSERT INTO itinerario_conocimiento VALUES (83, 17, 54, 5); -- Spark
-INSERT INTO itinerario_conocimiento VALUES (84, 17, 28, 4); -- SQLite
-INSERT INTO itinerario_conocimiento VALUES (85, 17, 27, 4); -- PostgreSQL
-INSERT INTO itinerario_conocimiento VALUES (86, 17, 53, 3); -- Jupyter
-INSERT INTO itinerario_conocimiento VALUES (87, 17, 30, 3); -- Redis
-
-INSERT INTO itinerario_conocimiento VALUES (88, 18, 54, 5); -- Spark
-INSERT INTO itinerario_conocimiento VALUES (89, 18, 29, 4); -- MongoDB
-INSERT INTO itinerario_conocimiento VALUES (90, 18, 27, 4); -- PostgreSQL
-INSERT INTO itinerario_conocimiento VALUES (91, 18, 39, 3); -- AWS
-
-INSERT INTO itinerario_conocimiento VALUES (92, 19, 22, 5); -- TensorFlow
-INSERT INTO itinerario_conocimiento VALUES (93, 19, 23, 5); -- PyTorch
-INSERT INTO itinerario_conocimiento VALUES (94, 19, 1, 4);  -- Python
-INSERT INTO itinerario_conocimiento VALUES (95, 19, 54, 4); -- Spark
-INSERT INTO itinerario_conocimiento VALUES (96, 19, 53, 3); -- Jupyter
-
-INSERT INTO itinerario_conocimiento VALUES (97, 20, 23, 5); -- PyTorch
-INSERT INTO itinerario_conocimiento VALUES (98, 20, 22, 5); -- TensorFlow
-INSERT INTO itinerario_conocimiento VALUES (99, 20, 1, 4);  -- Python
-INSERT INTO itinerario_conocimiento VALUES (100,20, 53,3); -- Jupyter
-
-INSERT INTO itinerario_conocimiento VALUES (101,21,23,5);
-INSERT INTO itinerario_conocimiento VALUES (102,21,22,5);
-INSERT INTO itinerario_conocimiento VALUES (103,21,1,4);
-INSERT INTO itinerario_conocimiento VALUES (104,21,54,4);
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (101, 21, 23, 5);
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (102, 21, 22, 5);
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (103, 21, 1, 4);
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (104, 21, 54, 4);
 
 -- ITINERARIO 22 – Técnico en Redes
-INSERT INTO itinerario_conocimiento VALUES (105, 22, 62, 5);  -- Cisco IOS
-INSERT INTO itinerario_conocimiento VALUES (106, 22, 44, 4);  -- Wireshark
-INSERT INTO itinerario_conocimiento VALUES (107, 22, 46, 4);  -- Nmap
-INSERT INTO itinerario_conocimiento VALUES (108, 22, 79, 3);  -- Bash
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (105, 22, 62, 5);  -- Cisco IOS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (106, 22, 44, 4);  -- Wireshark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (107, 22, 46, 4);  -- Nmap
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (108, 22, 79, 3);  -- Bash
 
 -- ITINERARIO 23 – Ingeniero de Telecomunicaciones
-INSERT INTO itinerario_conocimiento VALUES (109, 23, 62, 5);  -- Cisco IOS
-INSERT INTO itinerario_conocimiento VALUES (110, 23, 44, 4);  -- Wireshark
-INSERT INTO itinerario_conocimiento VALUES (111, 23, 42, 3);  -- Terraform (infra arquitectura)
-INSERT INTO itinerario_conocimiento VALUES (112, 23, 43, 3);  -- Ansible
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (109, 23, 62, 5);  -- Cisco IOS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (110, 23, 44, 4);  -- Wireshark
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (111, 23, 42, 3);  -- Terraform (infra arquitectura)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (112, 23, 43, 3);  -- Ansible
 
 -- ITINERARIO 24 – Administrador de Red
-INSERT INTO itinerario_conocimiento VALUES (113, 24, 62, 5);  -- Cisco IOS
-INSERT INTO itinerario_conocimiento VALUES (114, 24, 60, 4);  -- Linux / Unix
-INSERT INTO itinerario_conocimiento VALUES (115, 24, 30, 3);  -- Redis (cache / sistema)
-INSERT INTO itinerario_conocimiento VALUES (116, 24, 79, 3);  -- Bash
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (113, 24, 62, 5);  -- Cisco IOS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (114, 24, 60, 4);  -- Linux / Unix
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (115, 24, 30, 3);  -- Redis (cache / sistema)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (116, 24, 79, 3);  -- Bash
 
 -- ITINERARIO 25 – Técnico de Soporte Informático
-INSERT INTO itinerario_conocimiento VALUES (117, 25, 60, 5);  -- Linux / Unix
-INSERT INTO itinerario_conocimiento VALUES (118, 25, 61, 4);  -- Windows Server
-INSERT INTO itinerario_conocimiento VALUES (119, 25, 65, 3);  -- Active Directory
-INSERT INTO itinerario_conocimiento VALUES (120, 25, 44, 3);  -- Wireshark (para diagnósticos de red)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (117, 25, 60, 5);  -- Linux / Unix
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (118, 25, 61, 4);  -- Windows Server
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (119, 25, 65, 3);  -- Active Directory
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (120, 25, 44, 3);  -- Wireshark (para diagnósticos de red)
 
 -- ITINERARIO 26 – Especialista Help Desk
-INSERT INTO itinerario_conocimiento VALUES (121, 26, 60, 5);  -- Linux / Unix
-INSERT INTO itinerario_conocimiento VALUES (122, 26, 61, 5);  -- Windows Server
-INSERT INTO itinerario_conocimiento VALUES (123, 26, 65, 4);  -- Active Directory
-INSERT INTO itinerario_conocimiento VALUES (124, 26, 79, 3);  -- Bash
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (121, 26, 60, 5);  -- Linux / Unix
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (122, 26, 61, 5);  -- Windows Server
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (123, 26, 65, 4);  -- Active Directory
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (124, 26, 79, 3);  -- Bash
 
 -- ITINERARIO 27 – Gestor de Activos TI
-INSERT INTO itinerario_conocimiento VALUES (125, 27, 60, 4);  -- Linux / Unix
-INSERT INTO itinerario_conocimiento VALUES (126, 27, 61, 4);  -- Windows Server
-INSERT INTO itinerario_conocimiento VALUES (127, 27, 65, 5);  -- Active Directory
-INSERT INTO itinerario_conocimiento VALUES (128, 27, 34, 3);  -- Git (para versionado de scripts / documentación)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (125, 27, 60, 4);  -- Linux / Unix
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (126, 27, 61, 4);  -- Windows Server
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (127, 27, 65, 5);  -- Active Directory
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (128, 27, 34, 3);  -- Git (para versionado de scripts / documentación)
 
 -- ITINERARIO 28 – Jefe de Proyecto TIC
-INSERT INTO itinerario_conocimiento VALUES (129, 28, 66, 5);  -- Scrum
-INSERT INTO itinerario_conocimiento VALUES (130, 28, 67, 4);  -- Kanban
-INSERT INTO itinerario_conocimiento VALUES (131, 28, 68, 3);  -- Jira
-INSERT INTO itinerario_conocimiento VALUES (132, 28, 69, 3);  -- Trello
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (129, 28, 66, 5);  -- Scrum
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (130, 28, 67, 4);  -- Kanban
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (131, 28, 68, 3);  -- Jira
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (132, 28, 69, 3);  -- Trello
 
 -- ITINERARIO 29 – CIO
-INSERT INTO itinerario_conocimiento VALUES (133, 29, 66, 5);  -- Scrum
-INSERT INTO itinerario_conocimiento VALUES (134, 29, 72, 5);  -- COBIT
-INSERT INTO itinerario_conocimiento VALUES (135, 29, 70, 4);  -- Confluence
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (133, 29, 66, 5);  -- Scrum
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (134, 29, 72, 5);  -- COBIT
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (135, 29, 70, 4);  -- Confluence
 
 -- ITINERARIO 30 – CTO
-INSERT INTO itinerario_conocimiento VALUES (136, 30, 33, 5);  -- Kubernetes
-INSERT INTO itinerario_conocimiento VALUES (137, 30, 32, 5);  -- Docker
-INSERT INTO itinerario_conocimiento VALUES (138, 30, 42, 4);  -- Terraform
-INSERT INTO itinerario_conocimiento VALUES (139, 30, 39, 3);  -- AWS
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (136, 30, 33, 5);  -- Kubernetes
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (137, 30, 32, 5);  -- Docker
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (138, 30, 42, 4);  -- Terraform
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (139, 30, 39, 3);  -- AWS
 
 -- ITINERARIO 31 – Consultor Tecnológico
-INSERT INTO itinerario_conocimiento VALUES (140, 31, 3, 4);   -- JavaScript (para prototipado web)
-INSERT INTO itinerario_conocimiento VALUES (141, 31, 34, 4);  -- Git 
-INSERT INTO itinerario_conocimiento VALUES (142, 31, 55, 3);  -- Figma (para diseño de propuestas)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (140, 31, 3, 4);   -- JavaScript (para prototipado web)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (141, 31, 34, 4);  -- Git 
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (142, 31, 55, 3);  -- Figma (para diseño de propuestas)
 
 -- ITINERARIO 32 – Diseñador UX
-INSERT INTO itinerario_conocimiento VALUES (143, 32, 55, 5);  -- Figma
-INSERT INTO itinerario_conocimiento VALUES (144, 32, 56, 5);  -- Adobe XD
-INSERT INTO itinerario_conocimiento VALUES (145, 32, 34, 4);  -- Git (para colaboración con devs)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (143, 32, 55, 5);  -- Figma
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (144, 32, 56, 5);  -- Adobe XD
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (145, 32, 34, 4);  -- Git (para colaboración con devs)
 
 -- ITINERARIO 33 – Diseñador UI
-INSERT INTO itinerario_conocimiento VALUES (146, 33, 55, 5);  -- Figma
-INSERT INTO itinerario_conocimiento VALUES (147, 33, 56, 5);  -- Adobe XD
-INSERT INTO itinerario_conocimiento VALUES (148, 33, 58, 4);  -- Illustrator
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (146, 33, 55, 5);  -- Figma
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (147, 33, 56, 5);  -- Adobe XD
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (148, 33, 58, 4);  -- Illustrator
 
 -- ITINERARIO 34 – Diseñador Multimedia
-INSERT INTO itinerario_conocimiento VALUES (149, 34, 58, 5);  -- Illustrator
-INSERT INTO itinerario_conocimiento VALUES (150, 34, 59, 5);  -- Sketch
-INSERT INTO itinerario_conocimiento VALUES (151, 34, 55, 3);  -- Figma
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (149, 34, 58, 5);  -- Illustrator
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (150, 34, 59, 5);  -- Sketch
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (151, 34, 55, 3);  -- Figma
 
 -- ITINERARIO 35 – Formador TIC
-INSERT INTO itinerario_conocimiento VALUES (152, 35, 1, 4);   -- Python
-INSERT INTO itinerario_conocimiento VALUES (153, 35, 55, 4);  -- Figma
-INSERT INTO itinerario_conocimiento VALUES (154, 35, 34, 3);  -- Git
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (152, 35, 1, 4);   -- Python
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (153, 35, 55, 4);  -- Figma
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (154, 35, 34, 3);  -- Git
 
 -- ITINERARIO 36 – Técnico de E-learning
-INSERT INTO itinerario_conocimiento VALUES (155, 36, 55, 5);  -- Figma
-INSERT INTO itinerario_conocimiento VALUES (156, 36, 34, 4);  -- Git
-INSERT INTO itinerario_conocimiento VALUES (157, 36, 53, 3);  -- Jupyter Notebook (contenidos educativos)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (155, 36, 55, 5);  -- Figma
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (156, 36, 34, 4);  -- Git
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (157, 36, 53, 3);  -- Jupyter Notebook (contenidos educativos)
 
 -- ITINERARIO 37 – Especialista Blockchain
-INSERT INTO itinerario_conocimiento VALUES (158, 37, 39, 5);  -- AWS (blockchain cloud)
-INSERT INTO itinerario_conocimiento VALUES (159, 37, 32, 4);  -- Docker (para nodos)
-INSERT INTO itinerario_conocimiento VALUES (160, 37, 42, 4);  -- Terraform (infra como código)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (158, 37, 39, 5);  -- AWS (blockchain cloud)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (159, 37, 32, 4);  -- Docker (para nodos)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (160, 37, 42, 4);  -- Terraform (infra como código)
 
 -- ITINERARIO 38 – Ingeniero en Robótica
-INSERT INTO itinerario_conocimiento VALUES (161, 38, 6, 5);   -- C++
-INSERT INTO itinerario_conocimiento VALUES (162, 38, 37, 4);  -- Bitbucket (repos robótica)
-INSERT INTO itinerario_conocimiento VALUES (163, 38, 53, 3);  -- Jupyter Notebook (para simulaciones)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (161, 38, 6, 5);   -- C++
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (162, 38, 37, 4);  -- Bitbucket (repos robótica)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (163, 38, 53, 3);  -- Jupyter Notebook (para simulaciones)
 
 -- ITINERARIO 39 – Especialista IoT
-INSERT INTO itinerario_conocimiento VALUES (164, 39, 60, 5);  -- Linux / Unix (sistemas embebidos)
-INSERT INTO itinerario_conocimiento VALUES (165, 39, 33, 4);  -- Kubernetes (para edge)
-INSERT INTO itinerario_conocimiento VALUES (166, 39, 42, 3);  -- Terraform (infra IoT)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (164, 39, 60, 5);  -- Linux / Unix (sistemas embebidos)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (165, 39, 33, 4);  -- Kubernetes (para edge)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (166, 39, 42, 3);  -- Terraform (infra IoT)
 
 -- ITINERARIO 40 – Analista Automatización / RPA
-INSERT INTO itinerario_conocimiento VALUES (167, 40, 1, 5);   -- Python (scripting RPA)
-INSERT INTO itinerario_conocimiento VALUES (168, 40, 52, 4);  -- Excel Avanzado
-INSERT INTO itinerario_conocimiento VALUES (169, 40, 70, 3);  
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (167, 40, 1, 5);   -- Python (scripting RPA)
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (168, 40, 52, 4);  -- Excel Avanzado
+INSERT INTO itinerario_conocimiento (id, itinerario_id, conocimiento_id, nivel) VALUES (169, 40, 70, 3);  -- Confluence (gestión documentación)
+
+
+
 `);
      
       console.log("✅ Datos insertados.");
