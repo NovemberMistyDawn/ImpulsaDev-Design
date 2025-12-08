@@ -768,6 +768,15 @@ main {
     gap: 1.5rem;
   }
   
+  /* Reordenar columnas en itinerario para móvil */
+  .two-column-layout .column-left {
+    order: 2; /* Conocimientos primero */
+  }
+  
+  .two-column-layout .column-right {
+    order: 3; /* Puestos después */
+  }
+  
   /* Cards horizontales con scroll en móvil */
   .cards-horizontal {
     overflow-x: auto;
@@ -823,57 +832,62 @@ main {
   
   /* Esquema de niveles más compacto */
   .levels-schema-wrapper {
-    min-height: 400px;
-    padding: 1.5rem 0.5rem;
+    min-height: 350px;
+    padding: 1rem 0.5rem;
   }
   
   .levels-schema {
-    gap: 3.5rem;
+    gap: 3rem;
   }
   
   .level-row {
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .level-circle {
-    min-width: 50px;
-    min-height: 50px;
-    width: 50px;
-    height: 50px;
-    font-size: 1rem;
+    min-width: 45px;
+    min-height: 45px;
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
     border-width: 3px;
   }
   
   .level-row[data-nivel="0"] .level-circle {
-    width: 50px;
-    height: 50px;
-    font-size: 0.9rem;
+    width: 45px;
+    height: 45px;
+    font-size: 0.85rem;
   }
   
   .level-row[data-nivel="1"] .level-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 0.95rem;
+  }
+  
+  .level-row[data-nivel="2"] .level-circle {
     width: 55px;
     height: 55px;
     font-size: 1rem;
   }
   
-  .level-row[data-nivel="2"] .level-circle {
-    width: 60px;
-    height: 60px;
-    font-size: 1.1rem;
-  }
-  
   .knowledge-branches {
-    min-width: 140px;
+    min-width: 130px;
   }
   
   .knowledge-btn {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+    padding: 0.45rem 0.7rem;
+  }
+  
+  .knowledge-btn .icon-tech {
+    font-size: 0.85rem;
   }
   
   .vertical-line {
-    top: 15px;
-    bottom: 15px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
   }
 }
 
