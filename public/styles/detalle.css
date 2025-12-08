@@ -105,7 +105,7 @@ main {
   text-decoration: underline;
 }
 
-/* ====== HEADER CON IMAGEN (para página de puesto) ====== */
+/* ====== HEADER CON IMAGEN ====== */
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -143,7 +143,6 @@ main {
 }
 
 /* ====== LAYOUTS ====== */
-/* Layout de página de puesto: Itinerarios arriba (ancho completo) + 2 columnas abajo */
 .sections-container {
   display: flex;
   flex-direction: column;
@@ -161,7 +160,6 @@ main {
   gap: 2rem;
 }
 
-/* Layout de dos columnas (páginas de itinerario y conocimiento) */
 .two-column-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -169,7 +167,6 @@ main {
   margin-top: 2rem;
 }
 
-/* Layout especial para conocimiento: full width arriba + 2 columnas abajo */
 .full-width-top {
   grid-column: 1 / -1;
 }
@@ -217,12 +214,10 @@ main {
   gap: 1rem;
 }
 
-/* Variante para mostrar en 2 columnas fijas */
 .cards-two-columns {
   grid-template-columns: 1fr 1fr;
 }
 
-/* Variante horizontal para itinerarios */
 .cards-horizontal {
   display: flex;
   gap: 1rem;
@@ -301,7 +296,6 @@ main {
   position: relative;
 }
 
-/* Lista con botones toggle (soft skills) - diseño con línea azul y flecha naranja */
 .toggle-btn {
   background: transparent;
   border: none;
@@ -355,7 +349,7 @@ main {
   padding: 0 1.1rem 1rem 1.5rem;
 }
 
-/* Lista con enlaces (conocimientos) - cada uno en su fondo blanco con flecha azul */
+/* ====== LISTA DE ENLACES ====== */
 .link-list {
   list-style: none;
   padding: 0;
@@ -406,7 +400,7 @@ main {
   transform: translateX(3px);
 }
 
-/* ====== GRID GENÉRICO DE CARDS (para páginas de conocimiento/itinerario) ====== */
+/* ====== GRID GENÉRICO DE CARDS ====== */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -540,10 +534,9 @@ main {
 .vertical-line {
   position: absolute;
   left: 50%;
-  top: 0;
-  bottom: 0;
+  top: 20px;
+  bottom: 20px;
   width: 3px;
-   height: calc(100% - 40px);
   background: #7692CB;
   transform: translateX(-50%);
   z-index: 1;
@@ -740,33 +733,135 @@ main {
 }
 
 @media (max-width: 768px) {
+  /* Header responsive */
   .page-header {
     flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .page-header-text h1 {
+    font-size: 2rem;
+  }
+  
+  .page-header-image {
+    order: -1;
   }
   
   .page-header-image img {
-    max-width: 200px;
+    max-width: 150px;
   }
   
+  /* Layouts en columna única */
   .two-column-layout,
   .two-columns-bottom {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
+  /* Cards horizontales con scroll en móvil */
+  .cards-horizontal {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  
+  .cards-horizontal::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .cards-horizontal::-webkit-scrollbar-thumb {
+    background: #BACDEC;
+    border-radius: 3px;
+  }
+  
+  .cards-horizontal .info-card {
+    min-width: 180px;
+  }
+  
+  /* Cards en 2 columnas → 1 columna */
+  .cards-two-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Grid genérico en 1 columna */
   .cards-row {
     grid-template-columns: 1fr;
   }
   
-  .cards-horizontal {
-    justify-content: center;
-  }
-  
   .detalle-container {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
   }
   
   .card-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .section-block {
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .section-block h2 {
+    font-size: 1.05rem;
+  }
+  
+  /* Esquema de niveles más compacto */
+  .levels-schema-wrapper {
+    min-height: 400px;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .levels-schema {
+    gap: 3.5rem;
+  }
+  
+  .level-row {
+    gap: 2rem;
+  }
+  
+  .level-circle {
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+    border-width: 3px;
+  }
+  
+  .level-row[data-nivel="0"] .level-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .level-row[data-nivel="1"] .level-circle {
+    width: 55px;
+    height: 55px;
+    font-size: 1rem;
+  }
+  
+  .level-row[data-nivel="2"] .level-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.1rem;
+  }
+  
+  .knowledge-branches {
+    min-width: 140px;
+  }
+  
+  .knowledge-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .vertical-line {
+    top: 15px;
+    bottom: 15px;
   }
 }
 
@@ -774,5 +869,69 @@ main {
   .levels-schema-wrapper {
     overflow-x: auto;
     padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra pequeño */
+  .page-header-text h1 {
+    font-size: 1.6rem;
+  }
+  
+  .page-header-text p {
+    font-size: 0.9rem;
+  }
+  
+  .page-header-image img {
+    max-width: 120px;
+  }
+  
+  .detalle-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .section-block {
+    padding: 1.2rem 1rem;
+  }
+  
+  .info-card {
+    padding: 1rem 0.9rem;
+  }
+  
+  .info-card h3 {
+    font-size: 0.95rem;
+  }
+  
+  .info-card p {
+    font-size: 0.8rem;
+  }
+  
+  .btn-primary {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+  }
+  
+  /* Esquema aún más compacto */
+  .levels-schema {
+    gap: 2.5rem;
+  }
+  
+  .level-row {
+    gap: 1.5rem;
+  }
+  
+  .knowledge-branches {
+    min-width: 120px;
+  }
+  
+  .knowledge-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .toggle-btn,
+  .link-list a {
+    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
   }
 }
