@@ -27,7 +27,7 @@ async function cargarDetalleConocimiento() {
           <p>${data.conocimiento_descripcion || "Sin descripción disponible."}</p>
         </div>
         <div class="page-header-image">
-          <img src="/img/Puestos_ilustration-01.png" alt="${data.conocimiento_nombre}">
+          <img src="/img/habilidades_ilustration-01.png" alt="${data.conocimiento_nombre}">
         </div>
       </div>
 
