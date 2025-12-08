@@ -85,6 +85,14 @@ main {
 
 .detalle-container {
   padding: 2rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#detalle-container {
+  padding: 2rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 /* ====== BOTÓN VOLVER ====== */
@@ -796,6 +804,10 @@ main {
     padding: 1.5rem 1rem;
   }
   
+  #detalle-container {
+    padding: 1.5rem 1rem;
+  }
+  
   .card-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -887,6 +899,10 @@ main {
   }
   
   .detalle-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  #detalle-container {
     padding: 1rem 0.75rem;
   }
   
