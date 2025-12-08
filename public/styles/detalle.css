@@ -1,18 +1,25 @@
 /* ====== RESET ====== */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-   font-family: 'Raleway';
 }
 
 body {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif !important;
   background: #fff;
   color: #333;
   line-height: 1.6;
   padding: 0;
   margin: 0;
+}
+
+/* Forzar Raleway en todos los elementos de detalle */
+#detalle-container,
+#detalle-container * {
+  font-family: 'Raleway', sans-serif !important;
 }
 
 /* ====== NAVBAR ====== */
@@ -242,6 +249,7 @@ main {
   transition: transform .2s, box-shadow .2s;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .cards-horizontal .info-card {
@@ -270,11 +278,58 @@ main {
   flex-grow: 1;
 }
 
+/* Estilos específicos para cards de itinerarios (naranja con sombra azul) */
+.cards-horizontal .info-card {
+  box-shadow: 0 4px 12px rgba(34, 62, 146, 0.15);
+}
+
+.cards-horizontal .info-card:hover {
+  box-shadow: 0 6px 18px rgba(34, 62, 146, 0.25);
+}
+
+.cards-horizontal .info-card .btn-primary {
+  background: #F18657;
+}
+
+.cards-horizontal .info-card .btn-primary::after {
+  content: '→';
+  margin-left: 0.2rem;
+  color: white;
+  font-weight: 700;
+}
+
+.cards-horizontal .info-card .btn-primary:hover {
+  background: #E67347;
+}
+
+/* Estilos específicos para cards de puestos (azul con sombra normal) */
+.cards-two-columns .info-card {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cards-two-columns .info-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.cards-two-columns .info-card .btn-primary {
+  background: #7692CB;
+}
+
+.cards-two-columns .info-card .btn-primary::after {
+  content: '→';
+  margin-left: 0.2rem;
+  color: white;
+  font-weight: 700;
+}
+
+.cards-two-columns .info-card .btn-primary:hover {
+  background: #5F7AB8;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  background: #F18657;
   color: white;
   text-decoration: none;
   border-radius: 20px;
@@ -282,12 +337,9 @@ main {
   font-size: 0.8rem;
   font-weight: 600;
   margin-top: auto;
-  transition: background 0.2s;
+  transition: all 0.2s;
   align-self: flex-start;
-}
-
-.btn-primary:hover {
-  background: #E67347;
+  border: none;
 }
 
 /* ====== LISTAS INTERACTIVAS ====== */
